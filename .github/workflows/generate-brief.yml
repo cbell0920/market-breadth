@@ -1,0 +1,39 @@
+name: Generate Market Breadth Brief
+
+on:
+  schedule:
+    # 12:00 UTC = 8:00 AM EDT. Runs Mon–Fri.
+    - cron: '0 12 * * 1-5'
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install @anthropic-ai/sdk
+
+      - name: Generate brief
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node generate-brief.js
+
+      - name: Regenerate archive index
+        run: node regenerate-archive.js
+
+      - name: Commit and push
+        run: |
+          git config user.name "TPTraders Bot"
+          git config user.email "actions@github.com"
+          git add index.html archive/ archive.html
+          git diff --staged --quiet || git commit -m "Market Breadth $(date -u '+%Y-%m-%d') auto-generated"
+          git push origin main
