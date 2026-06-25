@@ -2,656 +2,229 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Market Breadth Brief — 2026-06-24 — TPTraders</title>
+<title>Market Breadth Brief — 2026-06-25 — TPTraders</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#0a0e1a;color:#e2e8f0;font-family:'Inter',system-ui,sans-serif;padding:20px;line-height:1.6}
-a{color:#22c55e;text-decoration:none}
-a:hover{text-decoration:underline}
-
+a{color:#f97316;text-decoration:none}a:hover{text-decoration:underline}
 .hdr{background:#0d1221;border:1px solid #1e2d4a;border-radius:12px;padding:16px 22px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.hdr-left .title{font-size:20px;font-weight:700;color:#fff;letter-spacing:.3px}
-.hdr-left .sub{font-size:12px;color:#64748b;margin-top:3px}
-.hub-link{color:#22c55e;font-size:12px;font-weight:600;border:1px solid #22c55e33;padding:5px 12px;border-radius:6px}
-.hub-link:hover{background:#22c55e14;text-decoration:none}
-
-.warn{background:#0f1a14;border:1px solid #22c55e33;border-radius:8px;padding:8px 16px;font-size:11px;color:#4ade80;margin-bottom:18px}
-
+.title{font-size:20px;font-weight:700;color:#fff}
+.sub{font-size:12px;color:#64748b;margin-top:3px}
+.hub-link{color:#f97316;font-size:12px;font-weight:600;border:1px solid #f9731633;padding:5px 12px;border-radius:6px}
+.hub-link:hover{background:#f9731614;text-decoration:none}
+.warn{background:#1a0f0a;border:1px solid #f9731633;border-radius:8px;padding:8px 16px;font-size:11px;color:#fb923c;margin-bottom:18px}
 .section{margin-bottom:26px}
-.section-title{font-size:10px;font-weight:700;color:#22c55e;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #1e2d4a}
-
-/* index cards */
-.index-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
-.index-card{background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:12px;text-align:center}
-.ic-label{font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
-.ic-price{font-size:16px;font-weight:700;color:#fff;font-family:'Courier New',monospace}
-.ic-change{font-size:12px;font-weight:600;margin-top:3px}
-.ic-sub{font-size:9px;color:#64748b;margin-top:3px;line-height:1.4}
-.up{color:#22c55e}
-.dn{color:#ef4444}
-.nu{color:#f59e0b}
-
-/* breadth meters */
-.breadth-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
-.breadth-card{background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:12px}
-.bc-label{font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
-.bc-value{font-size:18px;font-weight:700;margin-bottom:6px}
-.bc-bar-wrap{height:6px;background:#1e2d4a;border-radius:3px;overflow:hidden;margin-bottom:5px}
-.bc-bar{height:100%;border-radius:3px}
-.bc-sub{font-size:9px;color:#64748b;line-height:1.4}
-
-/* sector table */
-table{width:100%;border-collapse:collapse;font-size:12px}
-th{text-align:left;padding:7px 10px;color:#475569;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid #1e2d4a}
-td{padding:7px 10px;border-bottom:1px solid #0d1629;vertical-align:middle}
-tr:last-child td{border-bottom:none}
-tr:hover td{background:#ffffff04}
-.sec-name{font-weight:600;color:#fff;font-size:12px}
-.bar-cell{width:120px}
-.perf-bar-wrap{height:6px;background:#1e2d4a;border-radius:3px;overflow:hidden;position:relative}
-.perf-bar{height:100%;border-radius:3px;position:absolute;top:0}
-.perf-bar.pos{background:#22c55e;left:50%}
-.perf-bar.neg{background:#ef4444;right:50%}
-
-/* yield curve */
-.yield-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px}
-.yield-card{background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:10px;text-align:center}
-.yc-mat{font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
-.yc-rate{font-size:15px;font-weight:700;font-family:'Courier New',monospace;color:#fff}
-.yc-chg{font-size:10px;font-weight:600;margin-top:3px}
-
-/* macro text */
+.section-title{font-size:10px;font-weight:700;color:#f97316;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #1e2d4a}
+.regime-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.regime-card{background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:12px;text-align:center}
+.rc-label{font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+.rc-value{font-size:15px;font-weight:700;color:#fff}
+.rc-sub{font-size:10px;color:#64748b;margin-top:4px;line-height:1.4}
 .macro-text{font-size:13px;color:#94a3b8;line-height:1.85}
 .macro-text p{margin-bottom:12px}
 .macro-text strong{color:#e2e8f0}
-
-/* calendar */
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;padding:7px 10px;color:#475569;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid #1e2d4a}
+td{padding:7px 10px;border-bottom:1px solid #0d1629;vertical-align:middle}
+tr:last-child td{border-bottom:none}tr:hover td{background:#ffffff04}
+.bull{color:#22c55e;font-weight:700}.bear{color:#ef4444;font-weight:700}.neu{color:#f59e0b;font-weight:700}
+.level{font-family:'Courier New',monospace;color:#f59e0b;font-size:11px}
+.driver{color:#64748b;font-size:11px}
+.val{font-family:'Courier New',monospace;color:#e2e8f0;font-size:12px}
+.sector-bar{height:6px;border-radius:3px;background:#1e2d4a;width:100%;position:relative;margin-top:4px}
+.sector-fill{height:100%;border-radius:3px;position:absolute;top:0;left:0}
 .cal-list{display:flex;flex-direction:column;gap:8px}
 .cal-item{background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:12px}
 .cal-imp{width:4px;border-radius:2px;flex-shrink:0;align-self:stretch;min-height:30px}
-.cal-imp.high{background:#ef4444}
-.cal-imp.med{background:#f59e0b}
-.cal-imp.low{background:#22c55e}
-.cal-time{font-size:10px;color:#64748b;min-width:65px;font-family:'Courier New',monospace}
-.cal-ticker{font-size:10px;font-weight:700;color:#22c55e;min-width:40px}
+.cal-imp.high{background:#ef4444}.cal-imp.med{background:#f59e0b}.cal-imp.low{background:#22c55e}
+.cal-time{font-size:10px;color:#64748b;min-width:55px;font-family:'Courier New',monospace}
+.cal-ccy{font-size:10px;font-weight:700;color:#f97316;min-width:50px}
 .cal-desc{font-size:12px;color:#e2e8f0;font-weight:500}
 .cal-sub{font-size:10px;color:#64748b;margin-top:2px}
 .cal-alert{font-size:11px;color:#f59e0b;margin-top:2px;font-style:italic}
-
-/* analyst box */
-.analyst-box{background:#0d1629;border:1px solid #22c55e22;border-left:3px solid #22c55e;border-radius:0 8px 8px 0;padding:16px 18px}
-.analyst-label{font-size:9px;color:#22c55e;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;font-weight:700}
+.analyst-box{background:#0d1629;border:1px solid #f9731622;border-left:3px solid #f97316;border-radius:0 8px 8px 0;padding:16px 18px}
+.analyst-label{font-size:9px;color:#f97316;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;font-weight:700}
 .analyst-text{font-size:13px;color:#cbd5e1;line-height:1.85}
 .analyst-text p{margin-bottom:12px}
 .analyst-text p:last-child{margin-bottom:0}
 .analyst-text strong{color:#fff}
-
-/* badge */
-.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:9px;font-weight:700;letter-spacing:.5px}
-.badge-bull{background:#0a2d0a;color:#22c55e;border:1px solid #22c55e33}
-.badge-bear{background:#2d0a0a;color:#ef4444;border:1px solid #ef444433}
+.badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:9px;font-weight:700;letter-spacing:.5px}
+.badge-pos{background:#0a2d0a;color:#22c55e;border:1px solid #22c55e33}
+.badge-neg{background:#2d0a0a;color:#ef4444;border:1px solid #ef444433}
 .badge-neu{background:#2d2000;color:#f59e0b;border:1px solid #f59e0b33}
-.badge-def{background:#0d1a2d;color:#22c55e;border:1px solid #22c55e22}
-
-/* tabs */
+.footer{text-align:center;color:#1e3a5f;font-size:10px;margin-top:30px;padding-top:16px;border-top:1px solid #1e2d4a}
 .tabs{display:flex;gap:0;border-bottom:1px solid #1e2d4a;margin-bottom:16px;overflow-x:auto}
 .tab{padding:8px 16px;font-size:11px;font-weight:600;color:#475569;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s;user-select:none}
-.tab:hover{color:#94a3b8}
-.tab.active{color:#22c55e;border-bottom-color:#22c55e}
-.tab-panel{display:none}
-.tab-panel.active{display:block}
-
-/* conviction bar */
-.conv-wrap{display:flex;align-items:center;gap:6px}
-.conv-bar{height:4px;border-radius:2px;background:#1e2d4a;width:60px;position:relative}
-.conv-fill{height:100%;border-radius:2px;position:absolute;top:0;left:0}
-.conv-score{font-family:'Courier New',monospace;font-size:10px}
-
-.footer{text-align:center;color:#1e3a5f;font-size:10px;margin-top:30px;padding-top:16px;border-top:1px solid #1e2d4a}
-
-@media(max-width:600px){
-  body{padding:12px}
-  .hdr{flex-direction:column;align-items:flex-start}
-  .index-grid{grid-template-columns:1fr 1fr}
-  .breadth-grid{grid-template-columns:1fr 1fr}
-  .yield-grid{grid-template-columns:repeat(3,1fr)}
-}
+.tab:hover{color:#94a3b8}.tab.active{color:#f97316;border-bottom-color:#f97316}
+.tab-panel{display:none}.tab-panel.active{display:block}
+.breadth-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.breadth-card{background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:12px}
+.bc-label{font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
+.bc-value{font-size:16px;font-weight:700}
+.bc-sub{font-size:10px;color:#64748b;margin-top:3px;line-height:1.4}
+@media(max-width:600px){body{padding:12px}.hdr{flex-direction:column;align-items:flex-start}.regime-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
-
 <div class="hdr">
-  <div class="hdr-left">
-    <div class="title">MARKET BREADTH BRIEF 2026-06-24 — TPTraders</div>
-    <div class="sub">Generated Wed, 24 Jun 2026 | Based on Jun 23 close + pre-market Jun 24 | Powered by TPTraders Intelligence</div>
+  <div>
+    <div class="title">BREADTH/BRIEF 2026-06-25 — TPTraders</div>
+    <div class="sub">Generated Thu, 25 Jun 2026 | Pre-market | Powered by TPTraders Intelligence</div>
   </div>
   <a class="hub-link" href="https://cbell0920.github.io/tptraders-hub">← Hub</a>
 </div>
+<div class="warn">⚠ NOT FINANCIAL ADVICE — For research and educational purposes only.</div>
 
-<div class="warn">⚠ NOT FINANCIAL ADVICE — For research and educational purposes only. All content is informational.</div>
-
-<!-- TABS -->
 <div class="tabs">
-  <div class="tab active" onclick="switchTab('overview')">Overview</div>
+  <div class="tab active" onclick="switchTab('snapshot')">Index Snapshot</div>
   <div class="tab" onclick="switchTab('breadth')">Breadth Indicators</div>
   <div class="tab" onclick="switchTab('sectors')">Sectors</div>
   <div class="tab" onclick="switchTab('rates')">Rates & Yields</div>
-  <div class="tab" onclick="switchTab('macro')">Macro</div>
   <div class="tab" onclick="switchTab('calendar')">Calendar</div>
   <div class="tab" onclick="switchTab('analyst')">Analyst Note</div>
 </div>
 
-<!-- OVERVIEW TAB -->
-<div class="tab-panel active" id="tab-overview">
-
+<!-- SNAPSHOT -->
+<div class="tab-panel active" id="tab-snapshot">
   <div class="section">
-    <div class="section-title">Index Snapshot — Jun 23 Close</div>
-    <div class="index-grid">
-      <div class="index-card">
-        <div class="ic-label">S&P 500</div>
-        <div class="ic-price">7,365</div>
-        <div class="ic-change dn">-1.44%</div>
-        <div class="ic-sub">7,472 prior close · Tech-led selloff</div>
-      </div>
-      <div class="index-card">
-        <div class="ic-label">Nasdaq Comp.</div>
-        <div class="ic-price">25,587</div>
-        <div class="ic-change dn">-2.21%</div>
-        <div class="ic-sub">Semi rout from KOSPI contagion</div>
-      </div>
-      <div class="index-card">
-        <div class="ic-label">Dow Jones</div>
-        <div class="ic-price">51,665</div>
-        <div class="ic-change dn">-0.09%</div>
-        <div class="ic-sub">Defensives / value holding</div>
-      </div>
-      <div class="index-card">
-        <div class="ic-label">Russell 2000</div>
-        <div class="ic-price">2,975</div>
-        <div class="ic-change dn">-0.96%</div>
-        <div class="ic-sub">Small caps under pressure</div>
-      </div>
-      <div class="index-card">
-        <div class="ic-label">QQQ (Nasdaq ETF)</div>
-        <div class="ic-price">713.65</div>
-        <div class="ic-change dn">-3.31% (24h)</div>
-        <div class="ic-sub">52-wk range: 536–748 · At support</div>
-      </div>
-      <div class="index-card">
-        <div class="ic-label">VIX</div>
-        <div class="ic-price">19.49</div>
-        <div class="ic-change dn">+12.79%</div>
-        <div class="ic-sub">Spiking — elevated fear · watch 20 level</div>
-      </div>
+    <div class="section-title">Market Regime — Pre-market June 25</div>
+    <div class="regime-grid">
+      <div class="regime-card"><div class="rc-label">S&P 500 (prev close)</div><div class="rc-value" style="color:#ef4444">7,358</div><div class="rc-sub">-0.10% Wed · futures +0.7% Thu</div></div>
+      <div class="regime-card"><div class="rc-label">Nasdaq (prev close)</div><div class="rc-value" style="color:#ef4444">25,477</div><div class="rc-sub">-0.43% Wed · futures +2.1% Thu</div></div>
+      <div class="regime-card"><div class="rc-label">Dow Jones (prev close)</div><div class="rc-value" style="color:#22c55e">51,849</div><div class="rc-sub">+0.35% Wed · industrials leading</div></div>
+      <div class="regime-card"><div class="rc-label">VIX</div><div class="rc-value" style="color:#f59e0b">18.24</div><div class="rc-sub">Prev 19.49 · easing on Micron</div></div>
+      <div class="regime-card"><div class="rc-label">S&P 500 Futures</div><div class="rc-value" style="color:#22c55e">+0.7%</div><div class="rc-sub">Pre-market · Micron-led bounce</div></div>
+      <div class="regime-card"><div class="rc-label">Nasdaq Futures</div><div class="rc-value" style="color:#22c55e">+2.1%</div><div class="rc-sub">Semi sector leading</div></div>
+      <div class="regime-card"><div class="rc-label">Russell 2000</div><div class="rc-value">2,975</div><div class="rc-sub">-0.96% Wed · small caps lagging</div></div>
+      <div class="regime-card"><div class="rc-label">SPY (pre-market)</div><div class="rc-value" style="color:#22c55e">~$744</div><div class="rc-sub">Prev close $739 · futures up</div></div>
     </div>
   </div>
-
   <div class="section">
-    <div class="section-title">Market Regime</div>
-    <div class="index-grid">
-      <div class="index-card">
-        <div class="ic-label">Overall Regime</div>
-        <div class="ic-price" style="font-size:13px;color:#f59e0b">⚡ MIXED / RISK-OFF TILT</div>
-        <div class="ic-sub">Tech distribution · defensives rotating in · breadth split</div>
-      </div>
-      <div class="index-card">
-        <div class="ic-label">Breadth Signal</div>
-        <div class="ic-price" style="font-size:13px;color:#ef4444">NARROW NEGATIVE</div>
-        <div class="ic-sub">~50% advancing despite large-cap drag</div>
-      </div>
-      <div class="index-card">
-        <div class="ic-label">Leadership</div>
-        <div class="ic-price" style="font-size:13px;color:#ef4444">SEMI-DEPENDENT</div>
-        <div class="ic-sub">NVDA/AVGO driving — narrow and fragile</div>
-      </div>
-      <div class="index-card">
-        <div class="ic-label">Rotation</div>
-        <div class="ic-price" style="font-size:13px;color:#22c55e">DEFENSIVES BID</div>
-        <div class="ic-sub">Health care · staples · utilities gaining</div>
-      </div>
+    <div class="section-title">Today's Macro Context</div>
+    <div class="macro-text">
+      <p>Markets enter June 25 in a <strong>bifurcated setup</strong>. Micron's blowout Q3 earnings (+17–18% pre-market) have revived AI trade enthusiasm after several tough days. Nasdaq futures are up 2.1%. But the session's defining event is <strong>PCE inflation at 8:30 AM ET</strong> — the Fed's preferred measure of inflation. Economists forecast +0.5% headline and +0.3% core month-over-month. With 68% probability of a September rate hike now priced, a hot PCE print could quickly overwhelm the Micron-driven optimism and send VIX back above 20.</p>
+      <p>The <strong>S&P 500 is approximately 5% below its June 2 all-time high</strong> of ~7,750. Market strategists argue the recent pullback has broadened leadership from tech into industrials and financials — constructive for breadth. The Dow's outperformance (+0.35% vs Nasdaq -0.43% on Wednesday) reflects this rotation. Breadth indicators will be key to watch today: a Micron-driven rally that lifts only semis while the broader market stalls suggests weak foundations.</p>
     </div>
   </div>
-
-  <div class="section">
-    <div class="section-title">Key Levels — SPY & QQQ</div>
-    <table>
-      <thead><tr><th>Instrument</th><th>Last</th><th>Key Support</th><th>Key Resistance</th><th>Signal</th><th>Note</th></tr></thead>
-      <tbody>
-        <tr>
-          <td style="font-weight:700;color:#fff">SPY (S&P 500 ETF)</td>
-          <td style="font-family:'Courier New',monospace;color:#f59e0b">~$736</td>
-          <td style="font-family:'Courier New',monospace;color:#22c55e">$720 / $700</td>
-          <td style="font-family:'Courier New',monospace;color:#ef4444">$750 / $760</td>
-          <td><span class="badge badge-neu">NEUTRAL</span></td>
-          <td style="font-size:11px;color:#64748b">Below prior close — watching 720 as next meaningful support</td>
-        </tr>
-        <tr>
-          <td style="font-weight:700;color:#fff">QQQ (Nasdaq ETF)</td>
-          <td style="font-family:'Courier New',monospace;color:#ef4444">$713.65</td>
-          <td style="font-family:'Courier New',monospace;color:#22c55e">$701 / $686</td>
-          <td style="font-family:'Courier New',monospace;color:#ef4444">$725 / $744</td>
-          <td><span class="badge badge-bear">BEARISH TILT</span></td>
-          <td style="font-size:11px;color:#64748b">Lost $717 support — next liquidity pool at $701. Semis the key</td>
-        </tr>
-        <tr>
-          <td style="font-weight:700;color:#fff">VIX</td>
-          <td style="font-family:'Courier New',monospace;color:#ef4444">19.49</td>
-          <td style="font-family:'Courier New',monospace;color:#22c55e">16 / 14</td>
-          <td style="font-family:'Courier New',monospace;color:#ef4444">20 / 25</td>
-          <td><span class="badge badge-bear">ELEVATED</span></td>
-          <td style="font-size:11px;color:#64748b">+12.8% spike. Prior peak 22.22 (Jun 10). Watch 20 as inflection</td>
-        </tr>
-        <tr>
-          <td style="font-weight:700;color:#fff">Russell 2000</td>
-          <td style="font-family:'Courier New',monospace;color:#ef4444">2,975</td>
-          <td style="font-family:'Courier New',monospace;color:#22c55e">2,900 / 2,800</td>
-          <td style="font-family:'Courier New',monospace;color:#ef4444">3,050 / 3,100</td>
-          <td><span class="badge badge-neu">NEUTRAL</span></td>
-          <td style="font-size:11px;color:#64748b">Small caps lagging — rate sensitivity weighing on growth names</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
 </div>
 
-<!-- BREADTH TAB -->
+<!-- BREADTH -->
 <div class="tab-panel" id="tab-breadth">
-
   <div class="section">
-    <div class="section-title">Advance / Decline</div>
+    <div class="section-title">Breadth Indicators</div>
     <div class="breadth-grid">
-      <div class="breadth-card">
-        <div class="bc-label">S&P 500 Advancers (Jun 23)</div>
-        <div class="bc-value up">~299 / 500</div>
-        <div class="bc-bar-wrap"><div class="bc-bar" style="width:60%;background:#22c55e"></div></div>
-        <div class="bc-sub">~60% of stocks advanced despite index falling -1.44%. Tech sector (-4.13%) masked broad gains in staples, health care, utilities.</div>
-      </div>
-      <div class="breadth-card">
-        <div class="bc-label">NYSE A/D Signal</div>
-        <div class="bc-value nu">MIXED</div>
-        <div class="bc-bar-wrap"><div class="bc-bar" style="width:50%;background:#f59e0b"></div></div>
-        <div class="bc-sub">NYSE Composite +0.41% even as S&P fell. Broad market healthier than headline implies — concentration risk in mega-cap tech the culprit.</div>
-      </div>
-      <div class="breadth-card">
-        <div class="bc-label">% S&P 500 Above 50-DMA</div>
-        <div class="bc-value nu">~52%</div>
-        <div class="bc-bar-wrap"><div class="bc-bar" style="width:52%;background:#f59e0b"></div></div>
-        <div class="bc-sub">Sitting near the 50% neutral line. A drop below 50% would signal deteriorating intermediate-term breadth.</div>
-      </div>
-      <div class="breadth-card">
-        <div class="bc-label">% S&P 500 Above 200-DMA</div>
-        <div class="bc-value up">~63%</div>
-        <div class="bc-bar-wrap"><div class="bc-bar" style="width:63%;background:#22c55e"></div></div>
-        <div class="bc-sub">Above 50% = long-term breadth still constructive. Below 50% would be a red flag for the primary trend.</div>
-      </div>
-      <div class="breadth-card">
-        <div class="bc-label">52-Week Highs (NYSE)</div>
-        <div class="bc-value nu">Declining</div>
-        <div class="bc-bar-wrap"><div class="bc-bar" style="width:35%;background:#f59e0b"></div></div>
-        <div class="bc-sub">New highs shrinking as tech distributes. Watch for uptick in 52-week lows — that would be a distribution warning sign.</div>
-      </div>
-      <div class="breadth-card">
-        <div class="bc-label">VIX Term Structure</div>
-        <div class="bc-value dn">CONTANGO INTACT</div>
-        <div class="bc-bar-wrap"><div class="bc-bar" style="width:40%;background:#ef4444"></div></div>
-        <div class="bc-sub">Spot VIX 19.49. Prior spike peak 22.22 (Jun 10), high 31.05 (late March). Still well below structural fear levels — not a crisis signal yet.</div>
-      </div>
+      <div class="breadth-card"><div class="bc-label">S&P 500 ATH Distance</div><div class="bc-value" style="color:#f59e0b">-4.9%</div><div class="bc-sub">From Jun 2 ATH ~7,750. Recovery in progress.</div></div>
+      <div class="breadth-card"><div class="bc-label">52-Week Range SPY</div><div class="bc-value" style="color:#22c55e">Upper 30%</div><div class="bc-sub">52W range $541–$748. Current ~$739.</div></div>
+      <div class="breadth-card"><div class="bc-label">QQQ vs SPY YTD</div><div class="bc-value" style="color:#22c55e">QQQ +30%</div><div class="bc-sub">QQQ 30% · SPY ~8% YTD. Tech outperforming.</div></div>
+      <div class="breadth-card"><div class="bc-label">VIX Level</div><div class="bc-value" style="color:#22c55e">18.24</div><div class="bc-sub">Below 20 = normal. PCE could spike above 20.</div></div>
+      <div class="breadth-card"><div class="bc-label">VIX 52W Range</div><div class="bc-value">13.38–35.30</div><div class="bc-sub">Current near low end. Complacency risk.</div></div>
+      <div class="breadth-card"><div class="bc-label">Russell 2000 vs SPY</div><div class="bc-value" style="color:#ef4444">Lagging</div><div class="bc-sub">Small caps underperforming. Risk aversion visible in breadth.</div></div>
+      <div class="breadth-card"><div class="bc-label">Nasdaq Leadership</div><div class="bc-value" style="color:#f59e0b">Narrowing</div><div class="bc-sub">Semis driving Nasdaq. Software lagging. Breadth concern.</div></div>
+      <div class="breadth-card"><div class="bc-label">Dow vs Nasdaq</div><div class="bc-value" style="color:#22c55e">Dow Leading</div><div class="bc-sub">Wed: Dow +0.35% vs Nasdaq -0.43%. Rotation into defensives/industrials.</div></div>
     </div>
   </div>
-
   <div class="section">
-    <div class="section-title">Breadth Reading Summary</div>
-    <table>
-      <thead><tr><th>Indicator</th><th>Reading</th><th>Signal</th><th>Implication</th></tr></thead>
-      <tbody>
-        <tr><td style="color:#fff;font-weight:600">NYSE A/D Line</td><td style="color:#f59e0b">Mixed</td><td><span class="badge badge-neu">NEUTRAL</span></td><td style="font-size:11px;color:#64748b">Broad market more resilient than index suggests</td></tr>
-        <tr><td style="color:#fff;font-weight:600">S&P A/D (daily)</td><td style="color:#22c55e">299 adv / 201 dcl</td><td><span class="badge badge-bull">POSITIVE INTERNAL</span></td><td style="font-size:11px;color:#64748b">Healthy internals masked by mega-cap tech selloff</td></tr>
-        <tr><td style="color:#fff;font-weight:600">% Above 50-DMA</td><td style="color:#f59e0b">~52%</td><td><span class="badge badge-neu">NEUTRAL</span></td><td style="font-size:11px;color:#64748b">At the line — watch for deterioration</td></tr>
-        <tr><td style="color:#fff;font-weight:600">% Above 200-DMA</td><td style="color:#22c55e">~63%</td><td><span class="badge badge-bull">CONSTRUCTIVE</span></td><td style="font-size:11px;color:#64748b">Long-term trend still intact for majority of stocks</td></tr>
-        <tr><td style="color:#fff;font-weight:600">New 52-Week Highs</td><td style="color:#f59e0b">Declining</td><td><span class="badge badge-neu">WATCH</span></td><td style="font-size:11px;color:#64748b">Distribution beginning at the top of leadership names</td></tr>
-        <tr><td style="color:#fff;font-weight:600">VIX Level</td><td style="color:#ef4444">19.49 (+12.8%)</td><td><span class="badge badge-bear">ELEVATED</span></td><td style="font-size:11px;color:#64748b">Spike but not extreme — 20–25 is the danger zone</td></tr>
-        <tr><td style="color:#fff;font-weight:600">Leadership breadth</td><td style="color:#ef4444">Narrow</td><td><span class="badge badge-bear">CONCERN</span></td><td style="font-size:11px;color:#64748b">NVDA/AVGO concentration — rally fragile without broadening</td></tr>
-        <tr><td style="color:#fff;font-weight:600">Rotation direction</td><td style="color:#22c55e">→ Defensives</td><td><span class="badge badge-def">DEFENSIVE ROTATION</span></td><td style="font-size:11px;color:#64748b">Staples +1.79%, Healthcare +1.29%, Utilities +0.55% — classic risk-off rotation</td></tr>
-      </tbody>
-    </table>
+    <div class="section-title">Breadth Assessment</div>
+    <div class="macro-text">
+      <p><strong>Breadth is constructive but narrow.</strong> The Micron-led pre-market surge is real but concentrated in semiconductors. For a healthy bull market continuation, today's rally needs to participate beyond just MU, NVDA, and AMD. Watch the NYSE advance/decline line in the first hour of trading. If industrials, financials, and healthcare join the rally, the breadth picture improves significantly. If it's only semis, the underlying weakness remains.</p>
+      <p>The Russell 2000's underperformance (-0.96% Wednesday) is a yellow flag — small caps typically lead in genuine risk-on environments. Their continued lag suggests institutional money is selectively buying quality AI names rather than broadly rotating into risk.</p>
+    </div>
   </div>
-
 </div>
 
-<!-- SECTORS TAB -->
+<!-- SECTORS -->
 <div class="tab-panel" id="tab-sectors">
   <div class="section">
-    <div class="section-title">S&P 500 Sector Performance — Jun 23 Close</div>
+    <div class="section-title">Sector Rotation — Current Posture</div>
     <table>
-      <thead><tr><th>Sector</th><th>1-Day %</th><th>Performance</th><th>Bias</th><th>Note</th></tr></thead>
+      <thead><tr><th>Sector</th><th>Posture</th><th>Drivers</th><th>Key Names</th><th>Watch</th></tr></thead>
       <tbody>
-        <tr>
-          <td class="sec-name">Consumer Staples (XLP)</td>
-          <td class="up">+1.79%</td>
-          <td class="bar-cell"><div class="perf-bar-wrap"><div class="perf-bar pos" style="width:36%"></div></div></td>
-          <td><span class="badge badge-bull">LONG</span></td>
-          <td style="font-size:11px;color:#64748b">Classic defensive bid — investors rotating to safety</td>
-        </tr>
-        <tr>
-          <td class="sec-name">Real Estate (XLRE)</td>
-          <td class="up">+1.35%</td>
-          <td class="bar-cell"><div class="perf-bar-wrap"><div class="perf-bar pos" style="width:27%"></div></div></td>
-          <td><span class="badge badge-neu">WATCH</span></td>
-          <td style="font-size:11px;color:#64748b">Odd given rising yields — positioning-driven, watch sustainability</td>
-        </tr>
-        <tr>
-          <td class="sec-name">Health Care (XLV)</td>
-          <td class="up">+1.29%</td>
-          <td class="bar-cell"><div class="perf-bar-wrap"><div class="perf-bar pos" style="width:26%"></div></div></td>
-          <td><span class="badge badge-bull">LONG</span></td>
-          <td style="font-size:11px;color:#64748b">Defensive rotation + pharma earnings support</td>
-        </tr>
-        <tr>
-          <td class="sec-name">Energy (XLE)</td>
-          <td class="up">+0.57%</td>
-          <td class="bar-cell"><div class="perf-bar-wrap"><div class="perf-bar pos" style="width:11%"></div></div></td>
-          <td><span class="badge badge-neu">NEUTRAL</span></td>
-          <td style="font-size:11px;color:#64748b">Resilient despite oil softness from Iran deal progress</td>
-        </tr>
-        <tr>
-          <td class="sec-name">Utilities (XLU)</td>
-          <td class="up">+0.55%</td>
-          <td class="bar-cell"><div class="perf-bar-wrap"><div class="perf-bar pos" style="width:11%"></div></div></td>
-          <td><span class="badge badge-bull">LONG</span></td>
-          <td style="font-size:11px;color:#64748b">AI data center power demand theme + defensive rotation</td>
-        </tr>
-        <tr>
-          <td class="sec-name">Financial Services (XLF)</td>
-          <td class="up">+0.16%</td>
-          <td class="bar-cell"><div class="perf-bar-wrap"><div class="perf-bar pos" style="width:3%"></div></div></td>
-          <td><span class="badge badge-neu">NEUTRAL</span></td>
-          <td style="font-size:11px;color:#64748b">Steep yield curve positive for banks — net interest margin expansion</td>
-        </tr>
-        <tr>
-          <td class="sec-name">Comm. Services (XLC)</td>
-          <td class="dn">-0.25%</td>
-          <td class="bar-cell"><div class="perf-bar-wrap"><div class="perf-bar neg" style="width:5%"></div></div></td>
-          <td><span class="badge badge-neu">NEUTRAL</span></td>
-          <td style="font-size:11px;color:#64748b">Mixed — digital ad resilient, streaming pressured</td>
-        </tr>
-        <tr>
-          <td class="sec-name">Consumer Discret. (XLY)</td>
-          <td class="dn">-0.90%</td>
-          <td class="bar-cell"><div class="perf-bar-wrap"><div class="perf-bar neg" style="width:18%"></div></div></td>
-          <td><span class="badge badge-neu">NEUTRAL</span></td>
-          <td style="font-size:11px;color:#64748b">Rate sensitivity + consumer spending concerns</td>
-        </tr>
-        <tr>
-          <td class="sec-name">Industrials (XLI)</td>
-          <td class="dn">-1.51%</td>
-          <td class="bar-cell"><div class="perf-bar-wrap"><div class="perf-bar neg" style="width:30%"></div></div></td>
-          <td><span class="badge badge-neu">NEUTRAL</span></td>
-          <td style="font-size:11px;color:#64748b">Global growth concerns weighing on cyclical industrials</td>
-        </tr>
-        <tr>
-          <td class="sec-name">Basic Materials (XLB)</td>
-          <td class="dn">-2.88%</td>
-          <td class="bar-cell"><div class="perf-bar-wrap"><div class="perf-bar neg" style="width:58%"></div></div></td>
-          <td><span class="badge badge-bear">AVOID</span></td>
-          <td style="font-size:11px;color:#64748b">Weak copper/commodities + strong USD = double headwind</td>
-        </tr>
-        <tr>
-          <td class="sec-name">Technology (XLK)</td>
-          <td class="dn">-3.49%</td>
-          <td class="bar-cell"><div class="perf-bar-wrap"><div class="perf-bar neg" style="width:70%"></div></div></td>
-          <td><span class="badge badge-bear">UNDER PRESSURE</span></td>
-          <td style="font-size:11px;color:#64748b">KOSPI semi rout contagion — Samsung/SK Hynix → US chip sector. S&P 500's largest sector (-4.13%) cancelled 60% of stocks advancing</td>
-        </tr>
+        <tr><td style="font-weight:600;color:#fff">Semiconductors (XSD)</td><td><span class="bull">LEADING ↑↑</span></td><td class="driver">Micron beat · QCOM data center expansion · AI capex structural</td><td class="driver">MU +17%, NVDA, AMD, QCOM</td><td class="driver">Hold above gap or fade</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Industrials (XLI)</td><td><span class="bull">ROTATING IN ↑</span></td><td class="driver">Strait of Hormuz open · supply chain normalisation · Dow outperformance</td><td class="driver">CAT, HON, GE</td><td class="driver">Constructive on breadth</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Financials (XLF)</td><td><span class="bull">ROTATING IN ↑</span></td><td class="driver">Rising rates = net interest margin positive · Fed stress tests passed</td><td class="driver">JPM, BAC, GS</td><td class="driver">PCE data key — hot = more upside</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Technology (XLK)</td><td><span class="neu">MIXED →</span></td><td class="driver">Semis leading · software lagging · rates headwind for multiples</td><td class="driver">AAPL, MSFT, GOOGL lagging</td><td class="driver">Leadership narrowing</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Energy (XLE)</td><td><span class="bear">LAGGING ↓</span></td><td class="driver">WTI at $69 post-Hormuz · pre-war levels · Iran deal progress</td><td class="driver">XOM, CVX, OXY</td><td class="driver">Oil headwind structural</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Gold/Metals (GLD)</td><td><span class="bear">BEARISH ↓↓</span></td><td class="driver">Gold below $4,000 · dollar surging · real rates rising</td><td class="driver">GLD, GDX, NEM</td><td class="driver">Short opportunity on bounces</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Utilities (XLU)</td><td><span class="bear">LAGGING ↓</span></td><td class="driver">Rising rates direct headwind · AI power demand offset but insufficient</td><td class="driver">NEE, DUK, SO</td><td class="driver">Avoid in rising rate environment</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Consumer Discretionary (XLY)</td><td><span class="neu">WAIT & SEE →</span></td><td class="driver">Oil at $69 = consumer tailwind · but rates pressure spending · PCE today key</td><td class="driver">AMZN, TSLA, MCD</td><td class="driver">PCE determines direction</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Healthcare (XLV)</td><td><span class="neu">NEUTRAL →</span></td><td class="driver">Defensive rotation bid · no major catalysts</td><td class="driver">JNJ, UNH, LLY</td><td class="driver">Breadth play if rally broadens</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Telecom (VZ/T)</td><td><span class="bear">AVOID ↓</span></td><td class="driver">Dividend names underperform in rising rate environments</td><td class="driver">VZ, T</td><td class="driver">Rates headwind direct</td></tr>
       </tbody>
     </table>
   </div>
-
   <div class="section">
-    <div class="section-title">Sector Rotation Signal</div>
-    <div class="breadth-grid">
-      <div class="breadth-card">
-        <div class="bc-label">Favoured Now</div>
-        <div class="bc-value" style="font-size:13px;color:#22c55e">Defensives</div>
-        <div class="bc-sub">Consumer Staples, Health Care, Utilities outperforming — classic late-cycle / risk-off rotation. Schwab rates Health Care "More Favoured."</div>
-      </div>
-      <div class="breadth-card">
-        <div class="bc-label">Avoid / Reduce</div>
-        <div class="bc-value" style="font-size:13px;color:#ef4444">Tech + Materials</div>
-        <div class="bc-sub">Technology distributing on narrow leadership. Materials crushed by strong USD + weak China demand signal. Both underperforming meaningfully.</div>
-      </div>
-      <div class="breadth-card">
-        <div class="bc-label">Financials Tailwind</div>
-        <div class="bc-value" style="font-size:13px;color:#22c55e">Steepening Curve</div>
-        <div class="bc-sub">2Y at 4.2%, 10Y at 4.5% — steeper yield curve expands net interest margins for banks. XLF holding positive. Rate hike expectations structural positive for banks.</div>
-      </div>
-      <div class="breadth-card">
-        <div class="bc-label">AI Theme Status</div>
-        <div class="bc-value" style="font-size:13px;color:#f59e0b">NARROWING</div>
-        <div class="bc-sub">Money rotating within semis → NVDA/AVGO/networking/memory. Software leaving. Leadership increasingly concentrated — structural risk if those names correct.</div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<!-- RATES TAB -->
-<div class="tab-panel" id="tab-rates">
-
-  <div class="section">
-    <div class="section-title">US Treasury Yield Curve</div>
-    <div class="yield-grid">
-      <div class="yield-card">
-        <div class="yc-mat">3-Month</div>
-        <div class="yc-rate">~3.65%</div>
-        <div class="yc-chg nu">Fed funds floor</div>
-      </div>
-      <div class="yield-card">
-        <div class="yc-mat">2-Year</div>
-        <div class="yc-rate">4.205%</div>
-        <div class="yc-chg dn">+0.12% · Highest since Feb 2025</div>
-      </div>
-      <div class="yield-card">
-        <div class="yc-mat">5-Year</div>
-        <div class="yc-rate">4.270%</div>
-        <div class="yc-chg dn">+0.21%</div>
-      </div>
-      <div class="yield-card">
-        <div class="yc-mat">10-Year</div>
-        <div class="yc-rate">4.499%</div>
-        <div class="yc-chg dn">+0.06% · 2-wk high</div>
-      </div>
-      <div class="yield-card">
-        <div class="yc-mat">30-Year</div>
-        <div class="yc-rate">4.944%</div>
-        <div class="yc-chg dn">+0.04%</div>
-      </div>
-    </div>
-    <div style="margin-top:10px;font-size:11px;color:#475569">
-      2Y/10Y spread: +29bp (positive / normal sloping) — steepening from flat. Steeper curve = bank NIM positive, growth stocks negative on discount rate.
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-title">Rate Hike Expectations</div>
-    <div class="breadth-grid">
-      <div class="breadth-card">
-        <div class="bc-label">Sep 2026 Hike Probability</div>
-        <div class="bc-value dn">~68%</div>
-        <div class="bc-bar-wrap"><div class="bc-bar" style="width:68%;background:#ef4444"></div></div>
-        <div class="bc-sub">Up sharply from 29% before FOMC. Deutsche Bank + BofA now officially forecast September hike. PCE today will move this number.</div>
-      </div>
-      <div class="breadth-card">
-        <div class="bc-label">Year-End Hike Probability</div>
-        <div class="bc-value dn">&gt;50%</div>
-        <div class="bc-bar-wrap"><div class="bc-bar" style="width:55%;background:#f59e0b"></div></div>
-        <div class="bc-sub">Markets pricing at least one 25bp hike by December. Fed dot plot median at 3.8% — vs current 3.50–3.75%.</div>
-      </div>
-      <div class="breadth-card">
-        <div class="bc-label">US CPI (Latest)</div>
-        <div class="bc-value dn">4.2% YoY</div>
-        <div class="bc-bar-wrap"><div class="bc-bar" style="width:84%;background:#ef4444"></div></div>
-        <div class="bc-sub">Well above the Fed's 2% target. Core remains sticky. Energy relief from Iran deal may soften headline but core is what the Fed watches.</div>
-      </div>
-      <div class="breadth-card">
-        <div class="bc-label">MOVE Index (Bond Vol)</div>
-        <div class="bc-value nu">67.28</div>
-        <div class="bc-bar-wrap"><div class="bc-bar" style="width:45%;background:#f59e0b"></div></div>
-        <div class="bc-sub">Down from peak 115 in late March — bond volatility moderating even as yields rise. Orderly repricing rather than panic.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-title">Equity Valuation Context</div>
-    <table>
-      <thead><tr><th>Metric</th><th>Reading</th><th>Signal</th><th>Implication</th></tr></thead>
-      <tbody>
-        <tr>
-          <td style="color:#fff;font-weight:600">10Y Treasury Yield</td>
-          <td style="font-family:'Courier New',monospace;color:#ef4444">4.499%</td>
-          <td><span class="badge badge-bear">HEADWIND</span></td>
-          <td style="font-size:11px;color:#64748b">Risk-free rate competes directly with equity earnings yield — compresses multiples</td>
-        </tr>
-        <tr>
-          <td style="color:#fff;font-weight:600">2Y Yield</td>
-          <td style="font-family:'Courier New',monospace;color:#ef4444">4.205%</td>
-          <td><span class="badge badge-bear">HEADWIND</span></td>
-          <td style="font-size:11px;color:#64748b">Highest since Feb 2025 — rate hike expectations fully repriced upward</td>
-        </tr>
-        <tr>
-          <td style="color:#fff;font-weight:600">2Y/10Y Spread</td>
-          <td style="font-family:'Courier New',monospace;color:#22c55e">+29bp</td>
-          <td><span class="badge badge-bull">NORMAL</span></td>
-          <td style="font-size:11px;color:#64748b">Curve no longer inverted — steepening positive for banks, signals growth expectations returning</td>
-        </tr>
-        <tr>
-          <td style="color:#fff;font-weight:600">QQQ 52-wk range</td>
-          <td style="font-family:'Courier New',monospace;color:#f59e0b">$536–$748</td>
-          <td><span class="badge badge-neu">MID-RANGE</span></td>
-          <td style="font-size:11px;color:#64748b">Current ~$713 — roughly 53% of way through 52-week range, near recent highs but pulling back</td>
-        </tr>
-        <tr>
-          <td style="color:#fff;font-weight:600">QQQ 12-month return</td>
-          <td style="font-family:'Courier New',monospace;color:#22c55e">+32.21%</td>
-          <td><span class="badge badge-bull">STRONG</span></td>
-          <td style="font-size:11px;color:#64748b">Tech has outperformed massively — ripe for mean reversion if rate hike narrative firms</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-</div>
-
-<!-- MACRO TAB -->
-<div class="tab-panel" id="tab-macro">
-  <div class="section">
-    <div class="section-title">Macro Environment</div>
+    <div class="section-title">Today's Rotation Summary</div>
     <div class="macro-text">
-      <p>Tuesday's session delivered a clear message: <strong>the US equity market is dangerously dependent on semiconductor leadership, and that dependency is now a liability</strong>. South Korea's KOSPI plummeted 9.99% — its steepest drop in over three months — as overseas investors dumped Samsung and SK Hynix on concerns that the chip sector's rally had become overheated. US chip stocks fell in sympathy, dragging the Nasdaq -2.21% and the S&P 500 -1.44%. The critical detail, however, is that approximately 60% of S&P 500 stocks — roughly 299 of 500 — actually advanced on the day. Staples (+1.79%), health care (+1.29%), real estate (+1.35%), utilities (+0.55%), and energy (+0.57%) were all positive. The index fell because technology (-3.49% / -4.13% for the S&P tech sector) is the single largest weight and it sold off hard.</p>
-      <p>The <strong>rate environment</strong> is the structural headwind that won't go away. The 10-year Treasury yield sits at 4.499% — its highest in about two weeks — and the 2-year is at 4.205%, the highest since February 2025. Both Deutsche Bank and BofA Global Research have revised their forecasts to include a September rate hike following the Fed's hawkish tone under Chair Warsh. Markets are now pricing approximately 68% probability of a September hike (up from 29% before the June 17 FOMC). This is particularly problematic for high-multiple tech and growth names, whose valuations are extremely sensitive to the discount rate.</p>
-      <p>A <strong>Bank of America research note</strong> warning of up to three rate hikes this year is being cited as an additional dampener on sentiment. While oil prices are softening on Iran deal progress — a disinflationary signal — the <strong>2Y yield at its highest since February 2025 tells you the bond market is not buying the disinflation story yet</strong>. The PCE report today is the single most critical data point: a hot print entrenches the hike narrative and accelerates the rotation away from growth into defensives and financials. A miss could provide temporary relief to tech, but the structural repricing has likely begun.</p>
-      <p>The broader picture: <strong>defensives are winning, AI-infrastructure names within tech are the last men standing</strong>, and the market is making an orderly (for now) adjustment to a higher-for-longer rate environment. The VIX at 19.49 — up 12.8% on the day but still well below the March peak of 31.05 — signals elevated concern without crisis-level fear. Today's market will be watching Micron earnings after the bell as a tell on whether the semi selloff is sentiment-driven or fundamental.</p>
+      <p><strong>Money is flowing INTO:</strong> Semiconductors (Micron catalyst), Industrials (Hormuz reopening / supply chain), Financials (rising rates = NIM positive)</p>
+      <p><strong>Money is flowing OUT OF:</strong> Gold/Metals (dollar strength), Energy (oil at $69), Utilities (rates headwind), Software (rotation to semis)</p>
+      <p><strong>Watch today:</strong> If the PCE print is in line or soft, consumer discretionary and healthcare could join the rally — broadening leadership meaningfully. If hot, defensive rotation into cash and short-duration accelerates.</p>
     </div>
   </div>
 </div>
 
-<!-- CALENDAR TAB -->
+<!-- RATES -->
+<div class="tab-panel" id="tab-rates">
+  <div class="section">
+    <div class="section-title">Rates, Yields & Dollar</div>
+    <div class="regime-grid">
+      <div class="regime-card"><div class="rc-label">10-Year Yield</div><div class="rc-value" style="color:#ef4444">4.408%</div><div class="rc-sub">Rising · rates headwind for growth stocks</div></div>
+      <div class="regime-card"><div class="rc-label">30-Year Yield</div><div class="rc-value" style="color:#ef4444">4.863%</div><div class="rc-sub">Long end rising · real rates elevated</div></div>
+      <div class="regime-card"><div class="rc-label">3-Month T-Bill</div><div class="rc-value">3.797%</div><div class="rc-sub">Short end anchored at Fed funds</div></div>
+      <div class="regime-card"><div class="rc-label">DXY</div><div class="rc-value" style="color:#22c55e">101.3</div><div class="rc-sub">Sweeping past resistance · 1+ year high</div></div>
+      <div class="regime-card"><div class="rc-label">Fed Funds Rate</div><div class="rc-value">3.50–3.75%</div><div class="rc-sub">On hold Jun 17 · Sep hike 68% priced</div></div>
+      <div class="regime-card"><div class="rc-label">WTI Crude</div><div class="rc-value" style="color:#ef4444">$69.45</div><div class="rc-sub">Pre-war levels · Hormuz open · disinflationary</div></div>
+      <div class="regime-card"><div class="rc-label">Gold</div><div class="rc-value" style="color:#ef4444">$4,001</div><div class="rc-sub">Below $4,000 intraday · lowest Nov 2025</div></div>
+      <div class="regime-card"><div class="rc-label">Bitcoin</div><div class="rc-value" style="color:#ef4444">$60,730</div><div class="rc-sub">-3% · risk off pressure</div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">Rates Implications for Equities</div>
+    <div class="macro-text">
+      <p><strong>The yield curve is the dominant macro variable for equities right now.</strong> The 10-year at 4.408% and rising is a meaningful headwind for high-multiple growth names. The relationship is direct: higher rates = lower present value of future earnings = compression of P/E multiples. This is why Nasdaq has pulled back ~5% from its June 2 ATH even as earnings remain strong.</p>
+      <p><strong>The positive side of higher rates:</strong> Financials benefit from wider net interest margins. Banks can earn more on loans vs deposits. The Fed stress test results released this week confirmed major US banks can handle a severe economic downturn — removing a tail risk. This supports XLF rotation.</p>
+      <p><strong>PCE data at 8:30 today</strong> will determine whether the 10-year yield pushes toward 4.5%+ (hot print) or pulls back toward 4.3% (soft miss). The equity market implications are significant — each 25bp move in the 10-year has roughly a 2–3% inverse impact on Nasdaq valuations.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CALENDAR -->
 <div class="tab-panel" id="tab-calendar">
   <div class="section">
-    <div class="section-title">Economic & Earnings Calendar — Next 48 Hours</div>
+    <div class="section-title">Economic & Earnings Calendar</div>
     <div class="cal-list">
-
-      <div class="cal-item">
-        <div class="cal-imp high"></div>
-        <div class="cal-time">08:30 ET<br>Today Jun 24</div>
-        <div class="cal-ticker">MACRO</div>
-        <div>
-          <div class="cal-desc">PCE Price Index — May (Headline + Core m/m)</div>
-          <div class="cal-sub">Fed's preferred inflation gauge · Forecast: +0.5% headline, +0.3% core</div>
-          <div class="cal-alert">⚠ Most important print of the week — moves rate hike odds and determines next leg for equities</div>
-        </div>
-      </div>
-
-      <div class="cal-item">
-        <div class="cal-imp high"></div>
-        <div class="cal-time">After Bell<br>Today Jun 24</div>
-        <div class="cal-ticker">MU</div>
-        <div>
-          <div class="cal-desc">Micron Technology — Q3 FY2026 Earnings</div>
-          <div class="cal-sub">Critical semi bellwether — direct read on DRAM/NAND demand after KOSPI rout</div>
-          <div class="cal-alert">⚠ This is the tell. Strong guidance = semi bounce tomorrow. Weak = second leg down in tech</div>
-        </div>
-      </div>
-
-      <div class="cal-item">
-        <div class="cal-imp med"></div>
-        <div class="cal-time">After Bell<br>Today Jun 24</div>
-        <div class="cal-ticker">FDX</div>
-        <div>
-          <div class="cal-desc">FedEx — Q4 FY2026 Earnings</div>
-          <div class="cal-sub">Global trade/logistics barometer — read on macro demand and shipping volumes</div>
-          <div class="cal-sub" style="color:#f59e0b">Also: Cerebras Systems (CBRS) — first earnings since May IPO</div>
-        </div>
-      </div>
-
-      <div class="cal-item">
-        <div class="cal-imp med"></div>
-        <div class="cal-time">08:30 ET<br>Thu Jun 25</div>
-        <div class="cal-ticker">MACRO</div>
-        <div>
-          <div class="cal-desc">GDP Final — Q1 2026</div>
-          <div class="cal-sub">Backward-looking but confirms the growth trajectory heading into the hike cycle</div>
-        </div>
-      </div>
-
-      <div class="cal-item">
-        <div class="cal-imp med"></div>
-        <div class="cal-time">08:30 ET<br>Thu Jun 25</div>
-        <div class="cal-ticker">MACRO</div>
-        <div>
-          <div class="cal-desc">Initial Jobless Claims</div>
-          <div class="cal-sub">Labour market health — low jobless claims keep hike pressure on</div>
-        </div>
-      </div>
-
-      <div class="cal-item">
-        <div class="cal-imp low"></div>
-        <div class="cal-time">10:00 ET<br>Fri Jun 26</div>
-        <div class="cal-ticker">MACRO</div>
-        <div>
-          <div class="cal-desc">U of Michigan Sentiment — Final</div>
-          <div class="cal-sub">Consumer confidence — secondary this week vs PCE and earnings</div>
-        </div>
-      </div>
-
+      <div class="cal-item"><div class="cal-imp high"></div><div class="cal-time">08:30 ET<br>Today</div><div class="cal-ccy">MACRO</div><div><div class="cal-desc">PCE Price Index — Headline & Core (May)</div><div class="cal-sub">Forecast: +0.5% headline · +0.3% core · YoY core 3.4%</div><div class="cal-alert">⚠ Market-defining event. Determines whether Sep hike is 100% priced. Hot print = sell growth.</div></div></div>
+      <div class="cal-item"><div class="cal-imp high"></div><div class="cal-time">Pre-mkt<br>Today</div><div class="cal-ccy">MU</div><div><div class="cal-desc">Micron Q3 FY2026 — REPORTED OVERNIGHT</div><div class="cal-sub">Massive beat · AI memory demand surging · shares +17% pre-market</div><div class="cal-alert">✓ Sets tone for entire semiconductor sector today</div></div></div>
+      <div class="cal-item"><div class="cal-imp med"></div><div class="cal-time">08:30 ET<br>Today</div><div class="cal-ccy">MACRO</div><div><div class="cal-desc">Initial Jobless Claims (weekly)</div><div class="cal-sub">Labour market secondary to PCE today</div></div></div>
+      <div class="cal-item"><div class="cal-imp med"></div><div class="cal-time">04:00 PM<br>Today</div><div class="cal-ccy">FED</div><div><div class="cal-desc">Fed Annual Bank Stress Test Results</div><div class="cal-sub">Capital return, dividend capacity implications. Results already expected to show system resilience.</div></div></div>
+      <div class="cal-item"><div class="cal-imp low"></div><div class="cal-time">Fri Jun 26</div><div class="cal-ccy">MACRO</div><div><div class="cal-desc">University of Michigan Consumer Sentiment — Final</div><div class="cal-sub">Low market impact unless major revision</div></div></div>
+      <div class="cal-item"><div class="cal-imp med"></div><div class="cal-time">Jul 29</div><div class="cal-ccy">FED</div><div><div class="cal-desc">Next FOMC Meeting</div><div class="cal-sub">September hike probability will be shaped by PCE today and July jobs data</div></div></div>
     </div>
   </div>
 </div>
 
-<!-- ANALYST NOTE TAB -->
+<!-- ANALYST NOTE -->
 <div class="tab-panel" id="tab-analyst">
   <div class="section">
     <div class="section-title">Senior Analyst Note</div>
     <div class="analyst-box">
-      <div class="analyst-label">TPTraders Senior Equities Analyst — June 24, 2026</div>
+      <div class="analyst-label">TPTraders Senior Market Analyst — June 25, 2026</div>
       <div class="analyst-text">
-        <p>Yesterday's selloff is being misread by those calling it a broad market breakdown. <strong>It isn't — yet.</strong> Approximately 60% of S&P 500 stocks advanced on Tuesday even as the index fell 1.44%. The damage was concentrated in the technology sector, which dragged the headline number. The real story is a rotational shift that has been building for weeks: money is leaving hyper-growth tech and moving into defensives, financials, and select utilities. That rotation is rational given the rate environment. The question is whether this is a healthy pause or the beginning of a more serious tech unwind.</p>
-        <p><strong>Micron earnings tonight are the near-term tell.</strong> The KOSPI rout was triggered by concerns that the semiconductor rally had become detached from fundamentals. If Micron reports strong demand guidance for DRAM and NAND — driven by AI infrastructure buildout — the selloff in US chips looks like an overreaction to Korean-market dynamics and the tech sector bounces tomorrow. If Micron is cautious or guides down, the thesis that semis are topping becomes much harder to dismiss. Position accordingly before the bell: either reduce tech exposure and wait, or hold with defined stop-loss levels.</p>
-        <p><strong>The rate picture is the structural overlay that doesn't go away after tonight.</strong> The 10-year at 4.5% and 2-year at 4.2%, with 68% probability of a September hike, is a genuinely hostile environment for high-multiple growth stocks. QQQ is up 32% over the past year — that multiple expansion was built on hopes of rate cuts that are now off the table. Reversion to mean in an environment where risk-free rates are at 4.2% is a real scenario, not a tail risk. The technically important levels to watch on QQQ are $701 on the downside and $725 on the upside. A close below $701 on volume would signal a more serious breakdown toward $686.</p>
-        <p><strong>The playbook for today:</strong> PCE at 08:30 ET sets the tone. Hot (≥+0.4% core m/m): defensives continue working, reduce tech, favour financials on steeper curve, VIX likely tests 22. Soft miss (&lt;+0.2% core): relief rally in tech, buy the QQQ dip near $701–$713, but size carefully — the structural repricing isn't over on one data point. Micron after bell then resets the semiconductor narrative for the next two weeks. Don't be fully positioned before you have both data points.</p>
+        <p><strong>The market is having a conversation about two incompatible things simultaneously.</strong> Micron's earnings confirm that the AI capex cycle is intact and accelerating — Big Tech has signaled AI capital expenditure rising past $700 billion in 2026 from $400 billion in 2025, and Micron's results validate that spend. This is unambiguously bullish for semiconductors. At the same time, the Fed under Kevin Warsh is making clear that rates will stay higher for longer, and possibly go higher still. Those two things — strong AI earnings growth and rising rates — create a tug-of-war that determines the market's direction from here.</p>
+        <p><strong>PCE data at 8:30 is the referee.</strong> A soft PCE (below +0.4% headline) gives the AI bull thesis room to run — lower rates reduce the discount on future earnings and allow growth multiples to expand. A hot print (+0.5% or above) forces the market to price a near-certain September hike and potentially October too, which compresses multiples even as earnings grow. The setup is not binary — markets can hold both truths — but the path of least resistance changes depending on the print.</p>
+        <p><strong>Breadth is the canary.</strong> Today's pre-market Micron surge is real, but if it stays concentrated in semiconductors and the Dow, Russell 2000, and healthcare don't participate, the rally is thin. Genuine bull markets need broad participation. The fact that small caps lagged badly on Wednesday (-0.96%) while the Dow led (+0.35%) suggests institutional rotation into quality over speculation. That's not bearish — it's mature bull market behavior — but it means individual stock selection matters more than just being long the index.</p>
+        <p><strong>Actionable today:</strong> Don't chase the Micron gap at the open unless PCE comes in soft or in line. If PCE is hot, wait 30–45 minutes for the initial volatility to settle before taking any new positions. The best setup on a hot PCE is shorting gold via GLD puts — the macro setup is clear, the technical setup is clean (below $4,000), and the risk management is straightforward. On a soft PCE, the Nasdaq rally broadens and QQQ calls become compelling above $718.</p>
       </div>
     </div>
   </div>
 </div>
 
-<div class="footer">Market Breadth Brief · TPTraders Intelligence Hub · 2026-06-24 · NOT FINANCIAL ADVICE<br>
+<div class="footer">Market Breadth Brief · TPTraders Intelligence Hub · 2026-06-25 · NOT FINANCIAL ADVICE<br>
 <a href="https://cbell0920.github.io/tptraders-hub" style="color:#1e3a5f">← TPTraders Hub</a>
 </div>
 
 <script>
 function switchTab(name){
-  const names=['overview','breadth','sectors','rates','macro','calendar','analyst'];
+  const names=['snapshot','breadth','sectors','rates','calendar','analyst'];
   document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',names[i]===name));
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
   document.getElementById('tab-'+name).classList.add('active');
