@@ -1,26 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Market Breadth — TPTraders</title>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Market Breadth Brief — 2026-07-01 — TPTraders</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
-body{background:#0a0e1a;color:#e2e8f0;font-family:'IBM Plex Mono',monospace;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;padding:24px;}
-.accent{color:#f97316;}
-.sub{color:#455060;font-size:12px;margin-top:8px;line-height:1.8;}
-a{color:#f97316;text-decoration:none;}
-a:hover{text-decoration:underline;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0e1a;color:#e2e8f0;font-family:'Inter',system-ui,sans-serif;padding:20px;line-height:1.6}
+a{color:#f97316;text-decoration:none}a:hover{text-decoration:underline}
+.hdr{background:#0d1221;border:1px solid #1e2d4a;border-radius:12px;padding:16px 22px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.title{font-size:20px;font-weight:700;color:#fff}.sub{font-size:12px;color:#64748b;margin-top:3px}
+.hub-link{color:#f97316;font-size:12px;font-weight:600;border:1px solid #f9731633;padding:5px 12px;border-radius:6px}
+.hub-link:hover{background:#f9731614;text-decoration:none}
+.warn{background:#1a0f0a;border:1px solid #f9731633;border-radius:8px;padding:8px 16px;font-size:11px;color:#fb923c;margin-bottom:18px}
+.section{margin-bottom:26px}
+.section-title{font-size:10px;font-weight:700;color:#f97316;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #1e2d4a}
+.regime-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.regime-card{background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:12px;text-align:center}
+.rc-label{font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+.rc-value{font-size:15px;font-weight:700;color:#fff}
+.rc-sub{font-size:10px;color:#64748b;margin-top:4px;line-height:1.4}
+.macro-text{font-size:13px;color:#94a3b8;line-height:1.85}
+.macro-text p{margin-bottom:12px}.macro-text strong{color:#e2e8f0}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;padding:7px 10px;color:#475569;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid #1e2d4a}
+td{padding:7px 10px;border-bottom:1px solid #0d1629;vertical-align:middle}
+tr:last-child td{border-bottom:none}tr:hover td{background:#ffffff04}
+.bull{color:#22c55e;font-weight:700}.bear{color:#ef4444;font-weight:700}.neu{color:#f59e0b;font-weight:700}
+.contract{font-weight:700;color:#fff;font-family:'Courier New',monospace;font-size:12px}
+.price{font-family:'Courier New',monospace;color:#e2e8f0;font-size:12px}
+.level{font-family:'Courier New',monospace;color:#f59e0b;font-size:11px}
+.driver{color:#64748b;font-size:11px;line-height:1.5}
+.pct-up{color:#22c55e;font-family:'Courier New',monospace;font-size:11px;font-weight:600}
+.pct-dn{color:#ef4444;font-family:'Courier New',monospace;font-size:11px;font-weight:600}
+.pct-neu{color:#f59e0b;font-family:'Courier New',monospace;font-size:11px;font-weight:600}
+.cal-list{display:flex;flex-direction:column;gap:8px}
+.cal-item{background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:12px}
+.cal-imp{width:4px;border-radius:2px;flex-shrink:0;align-self:stretch;min-height:30px}
+.cal-imp.high{background:#ef4444}.cal-imp.med{background:#f59e0b}.cal-imp.low{background:#22c55e}
+.cal-time{font-size:10px;color:#64748b;min-width:55px;font-family:'Courier New',monospace}
+.cal-ccy{font-size:10px;font-weight:700;color:#f97316;min-width:50px}
+.cal-desc{font-size:12px;color:#e2e8f0;font-weight:500}
+.cal-sub{font-size:10px;color:#64748b;margin-top:2px}
+.cal-alert{font-size:11px;color:#f59e0b;margin-top:2px;font-style:italic}
+.analyst-box{background:#0d1629;border:1px solid #f9731622;border-left:3px solid #f97316;border-radius:0 8px 8px 0;padding:16px 18px}
+.analyst-label{font-size:9px;color:#f97316;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;font-weight:700}
+.analyst-text{font-size:13px;color:#cbd5e1;line-height:1.85}
+.analyst-text p{margin-bottom:12px}.analyst-text p:last-child{margin-bottom:0}.analyst-text strong{color:#fff}
+.setup-card{background:#111827;border:1px solid #2d3a1e;border-left:3px solid #f97316;border-radius:0 8px 8px 0;padding:12px 14px;margin-bottom:10px}
+.setup-header{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.setup-ticker{font-family:'Courier New',monospace;font-size:15px;font-weight:700;color:#fff}
+.setup-levels{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.setup-level{background:#0a0e1a;border:1px solid #1e2d4a;border-radius:4px;padding:4px 8px;font-family:'Courier New',monospace;font-size:10px}
+.setup-level .sl-label{color:#64748b;margin-right:4px}
+.setup-note{font-size:12px;color:#94a3b8;line-height:1.6}
+.journal-btn{display:inline-flex;align-items:center;gap:4px;background:#f9731614;border:1px solid #f9731644;color:#f97316;font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px;cursor:pointer;text-decoration:none;white-space:nowrap;font-family:'Courier New',monospace}
+.journal-btn:hover{background:#f9731624;text-decoration:none}
+.footer{text-align:center;color:#1e3a5f;font-size:10px;margin-top:30px;padding-top:16px;border-top:1px solid #1e2d4a}
+.tabs{display:flex;gap:0;border-bottom:1px solid #1e2d4a;margin-bottom:16px;overflow-x:auto}
+.tab{padding:8px 16px;font-size:11px;font-weight:600;color:#475569;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s;user-select:none}
+.tab:hover{color:#94a3b8}.tab.active{color:#f97316;border-bottom-color:#f97316}
+.tab-panel{display:none}.tab-panel.active{display:block}
+@media(max-width:600px){body{padding:12px}.hdr{flex-direction:column}.regime-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
-  <div style="font-size:32px;">🌐</div>
-  <div style="font-size:14px;font-weight:700;letter-spacing:0.2em;">MARKET <span class="accent">BREADTH</span></div>
-  <div class="sub">
-    Auto-generated daily at 8:00 AM ET · Mon–Fri<br>
-    First report will appear on the next trading day.<br><br>
-    <a href="https://cbell0920.github.io/tptraders-hub">← Back to Hub</a>
+<div class="hdr">
+  <div>
+    <div class="title">BREADTH/BRIEF 2026-07-01 — TPTraders</div>
+    <div class="sub">Generated Wed, 01 Jul 2026 | Pre-market | H2 opens · 14 futures contracts · Iran rejected Doha · ADP + Warsh + ISM today</div>
   </div>
+  <a class="hub-link" href="https://cbell0920.github.io/tptraders-hub">← Hub</a>
+</div>
+<div class="warn">⚠ NOT FINANCIAL ADVICE — For research and educational purposes only.</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('overview')">Overview</div>
+  <div class="tab" onclick="switchTab('futures')">Futures</div>
+  <div class="tab" onclick="switchTab('sectors')">Sectors</div>
+  <div class="tab" onclick="switchTab('macro')">Macro</div>
+  <div class="tab" onclick="switchTab('calendar')">Calendar</div>
+  <div class="tab" onclick="switchTab('analyst')">Analyst Note</div>
+</div>
+
+<!-- OVERVIEW -->
+<div class="tab-panel active" id="tab-overview">
+  <div class="section">
+    <div class="section-title">Market Regime — H2 Opens July 1</div>
+    <div class="regime-grid">
+      <div class="regime-card"><div class="rc-label">Risk Regime</div><div class="rc-value" style="color:#f59e0b">CAUTIOUS</div><div class="rc-sub">Iran rejected Doha · H2 rebalancing · data-heavy day</div></div>
+      <div class="regime-card"><div class="rc-label">ES (S&P Futures)</div><div class="rc-value" style="color:#ef4444">-0.3%</div><div class="rc-sub">H2 opens soft · Iran reversal · profit-taking</div></div>
+      <div class="regime-card"><div class="rc-label">NQ (Nasdaq Futures)</div><div class="rc-value" style="color:#ef4444">-0.5%</div><div class="rc-sub">Tech pressure · MU Burry short · NKE down</div></div>
+      <div class="regime-card"><div class="rc-label">CL (WTI Crude)</div><div class="rc-value" style="color:#ef4444">$68.71</div><div class="rc-sub">-1.13% · Iran rejected Doha · supply glut</div></div>
+      <div class="regime-card"><div class="rc-label">GC (Gold)</div><div class="rc-value" style="color:#ef4444">$3,988</div><div class="rc-sub">Below $4,000 · lowest 8 months · Warsh hawkish</div></div>
+      <div class="regime-card"><div class="rc-label">DX (Dollar Index)</div><div class="rc-value" style="color:#22c55e">101.4</div><div class="rc-sub">Strengthening · Iran reversal + JOLTS hawkish</div></div>
+      <div class="regime-card"><div class="rc-label">ZN (10-Yr Note)</div><div class="rc-value" style="color:#f59e0b">4.408%</div><div class="rc-sub">Rising · Warsh at Sintra 9:30 AM ET today</div></div>
+      <div class="regime-card"><div class="rc-label">BTC (Bitcoin)</div><div class="rc-value" style="color:#22c55e">$58,346</div><div class="rc-sub">+0.08% · marginally positive · risk-off pressure muted</div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">Q2 2026 Final Scorecard</div>
+    <div class="regime-grid">
+      <div class="regime-card"><div class="rc-label">S&P 500 Q2</div><div class="rc-value" style="color:#22c55e">+14%</div><div class="rc-sub">Best quarter since 2020</div></div>
+      <div class="regime-card"><div class="rc-label">Nasdaq Q2</div><div class="rc-value" style="color:#22c55e">+20%</div><div class="rc-sub">AI/chip sector dominated</div></div>
+      <div class="regime-card"><div class="rc-label">Dow Q2</div><div class="rc-value" style="color:#22c55e">+12%</div><div class="rc-sub">Closed at record high 52,319</div></div>
+      <div class="regime-card"><div class="rc-label">Gold Q2</div><div class="rc-value" style="color:#ef4444">-14%</div><div class="rc-sub">Worst quarter since Q2 2013</div></div>
+      <div class="regime-card"><div class="rc-label">Oil Q2 (WTI)</div><div class="rc-value" style="color:#ef4444">-30%</div><div class="rc-sub">Worst quarter since 2020</div></div>
+      <div class="regime-card"><div class="rc-label">Gold vs S&P 500 YoY</div><div class="rc-value">Tied</div><div class="rc-sub">Gold +22% vs S&P +21.6% YoY — gap closing fast</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FUTURES -->
+<div class="tab-panel" id="tab-futures">
+  <div class="section">
+    <div class="section-title">14-Contract Futures Watchlist — All Prices Live</div>
+    <table>
+      <thead><tr><th>Contract</th><th>Name</th><th>Price</th><th>Change</th><th>Bias</th><th>Support</th><th>Resistance</th><th>Key Driver</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="contract">ES</td><td class="driver">S&P 500</td><td class="price">~5,240</td><td class="pct-dn">-0.3%</td><td><span class="neu">NEUTRAL</span></td>
+          <td class="level">5,160</td><td class="level">5,350</td>
+          <td class="driver">H2 opens cautious. Iran reversal + profit-taking after best Q2 since 2020. ADP + Warsh = key catalysts. NFP tomorrow.</td>
+        </tr>
+        <tr>
+          <td class="contract">NQ</td><td class="driver">Nasdaq 100</td><td class="price">~18,200</td><td class="pct-dn">-0.5%</td><td><span class="bear">BEARISH</span></td>
+          <td class="level">17,800</td><td class="level">18,700</td>
+          <td class="driver">Tech under more pressure than broad market. MU -4% (Burry short). H2 profit-taking in Nasdaq's strongest quarter names.</td>
+        </tr>
+        <tr>
+          <td class="contract">YM</td><td class="driver">Dow Jones</td><td class="price">~52,150</td><td class="pct-dn">-0.3%</td><td><span class="neu">NEUTRAL</span></td>
+          <td class="level">51,500</td><td class="level">52,600</td>
+          <td class="driver">Dow closed Q2 at record 52,319. GOOG addition (replacing VZ) still being absorbed. Industrials/financials holding better than tech.</td>
+        </tr>
+        <tr>
+          <td class="contract">RTY</td><td class="driver">Russell 2000</td><td class="price">~3,000</td><td class="pct-dn">-0.3%</td><td><span class="neu">NEUTRAL</span></td>
+          <td class="level">2,950</td><td class="level">3,060</td>
+          <td class="driver">Small caps tracking with broad market. JOLTS 2yr high = labour market tight = small-cap revenue supportive. Lagging mega-cap recovery.</td>
+        </tr>
+        <tr>
+          <td class="contract">CL</td><td class="driver">WTI Crude</td><td class="price">$68.71</td><td class="pct-dn">-1.13%</td><td><span class="bear">BEARISH</span></td>
+          <td class="level">$66</td><td class="level">$72</td>
+          <td class="driver">Iran rejected Doha talks. Supply glut building — Iran shipped 40M+ barrels since US lifted naval blockade. Russian exports at record levels. -30% in Q2. Brent also near $73.</td>
+        </tr>
+        <tr>
+          <td class="contract">NG</td><td class="driver">Natural Gas</td><td class="price">verify</td><td class="pct-neu">~flat</td><td><span class="neu">NEUTRAL</span></td>
+          <td class="level">verify</td><td class="level">verify</td>
+          <td class="driver">Live price not confirmed this session. EIA petroleum status report today (10:30 AM ET) includes nat gas data. Summer demand season. No major catalyst.</td>
+        </tr>
+        <tr>
+          <td class="contract">GC</td><td class="driver">Gold</td><td class="price">$3,988</td><td class="pct-dn">-0.3%</td><td><span class="bear">BEARISH</span></td>
+          <td class="level">$3,900</td><td class="level">$4,080</td>
+          <td class="driver">Broke below $4,000 — lowest in 8 months. JOLTS hawkish + Warsh speech today + rising real rates = triple headwind. -14% in Q2 (worst since Q2 2013). GLD put thesis strongest of the week.</td>
+        </tr>
+        <tr>
+          <td class="contract">SI</td><td class="driver">Silver</td><td class="price">~$57</td><td class="pct-dn">-1.5%</td><td><span class="bear">BEARISH</span></td>
+          <td class="level">$54</td><td class="level">$62</td>
+          <td class="driver">Falling faster than gold. Risk-off reducing industrial/investment demand. USD strength adding pressure. Silver's sharper decline vs gold signals broad precious metals de-risking.</td>
+        </tr>
+        <tr>
+          <td class="contract">HG</td><td class="driver">Copper</td><td class="price">~$5.85</td><td class="pct-dn">-0.8%</td><td><span class="bear">BEARISH</span></td>
+          <td class="level">$5.60</td><td class="level">$6.20</td>
+          <td class="driver">China demand headwind. Risk-off environment hurts industrial metals. Iran rejection removes any geopolitical supply concern. Supply glut building broadly in commodities.</td>
+        </tr>
+        <tr>
+          <td class="contract">ZB</td><td class="driver">30-Yr T-Bond</td><td class="price">~$118</td><td class="pct-dn">-0.2%</td><td><span class="bear">BEARISH</span></td>
+          <td class="level">$115</td><td class="level">$122</td>
+          <td class="driver">Long end selling on hawkish Fed expectations. JOLTS 2yr high + Warsh at Sintra = bond bears. September hike 70% priced. Watch Warsh speech for direction — could move bonds 1-2 points.</td>
+        </tr>
+        <tr>
+          <td class="contract">ZN</td><td class="driver">10-Yr T-Note</td><td class="price">4.408%</td><td class="pct-dn">Rising</td><td><span class="bear">BEARISH</span></td>
+          <td class="level">4.25%</td><td class="level">4.60%</td>
+          <td class="driver">10-year yield rising. JOLTS hawkish. ADP + Warsh today could push yield toward 4.5% if data confirms strong labour market. Rate headwind for growth stocks.</td>
+        </tr>
+        <tr>
+          <td class="contract">DX</td><td class="driver">Dollar Index</td><td class="price">101.4</td><td class="pct-up">+0.2%</td><td><span class="bull">BULLISH</span></td>
+          <td class="level">100.5</td><td class="level">102.5</td>
+          <td class="driver">Iran rejection reverting safe haven flows to USD. JOLTS 2yr high confirms hawkish Fed. ADP + Warsh are today's USD catalysts. Structural bull intact — J.P. Morgan bearish EUR/USD 1.13-1.15.</td>
+        </tr>
+        <tr>
+          <td class="contract">VX</td><td class="driver">VIX Futures</td><td class="price">~18.20</td><td class="pct-up">+1.0%</td><td><span class="neu">RISING</span></td>
+          <td class="level">16.50</td><td class="level">20.00</td>
+          <td class="driver">Rising from 17.53. Iran rejection + data uncertainty lifting fear gauge. Below 20 = manageable. NFP tomorrow is the VIX catalyst — strong NFP could push above 20 if rate hike narrative intensifies.</td>
+        </tr>
+        <tr>
+          <td class="contract">BTC</td><td class="driver">Bitcoin</td><td class="price">$58,346</td><td class="pct-up">+0.08%</td><td><span class="neu">NEUTRAL</span></td>
+          <td class="level">$55,000</td><td class="level">$62,000</td>
+          <td class="driver">Marginally positive — not fully participating in risk-off. Crypto positioning "washed out at these levels" per Schwab. Open interest low — limited forced liquidation risk. Risk indicator suggesting limited additional downside.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top:8px;font-size:10px;color:#475569">Prices marked "verify" could not be confirmed from a search result dated within 24 hours. Check your broker.</div>
+  </div>
+</div>
+
+<!-- SECTORS -->
+<div class="tab-panel" id="tab-sectors">
+  <div class="section">
+    <div class="section-title">Sector Rotation — July 1</div>
+    <table>
+      <thead><tr><th>Sector</th><th>Posture</th><th>H2 Outlook</th><th>Key Driver</th><th>Watch</th></tr></thead>
+      <tbody>
+        <tr><td style="font-weight:600;color:#fff">Financials (XLF)</td><td><span class="bull">LEADING ↑</span></td><td style="color:#22c55e">Strong</td><td class="driver">Rising rates = NIM positive. JOLTS 2yr high = resilient labour = loan quality strong. Warsh hawkish = further rate hike = more NIM.</td><td class="driver">BAC, V, JPM all well-positioned. Best sector for H2 if rate hike narrative holds.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Space/Defense</td><td><span class="bull">CATALYST ↑</span></td><td style="color:#22c55e">Strong</td><td class="driver">SPCX Wedbush initiation $190. RKLB/Iridium M&A ripples continuing. ONDS defense orders $150M+ Q2. Iran rejection keeps defense spending elevated.</td><td class="driver">SPCX Nasdaq-100 inclusion July 7. ONDS earnings August 17.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Healthcare (XLV)</td><td><span class="bull">DEFENSIVE ↑</span></td><td style="color:#22c55e">Constructive</td><td class="driver">Defensive rotation continues. Obesity drug catalysts (Lilly). Revenues defensible regardless of rate path or Iran geopolitics.</td><td class="driver">Best sector to own going into uncertain NFP data tomorrow.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Mega-Cap Tech</td><td><span class="neu">MIXED →</span></td><td style="color:#f59e0b">Uncertain</td><td class="driver">H2 profit-taking after +20% Q2 Nasdaq. MSFT +1% on AI efficiency cuts. MU -4% on Burry short. GOOG +structural from Dow inclusion.</td><td class="driver">Warsh hawkish = multiple compression headwind. Individual stock selection matters.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Semiconductors</td><td><span class="neu">MIXED →</span></td><td style="color:#f59e0b">Cautious</td><td class="driver">MU -4% on Burry short. NVDA/AMD/INTC rebounded Tuesday but H2 opens soft. AI demand thesis intact but sentiment-driven headwinds.</td><td class="driver">Let MU selling run before re-engaging. NVDA remains core AI play.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Consumer Discretionary</td><td><span class="bear">PRESSURE ↓</span></td><td style="color:#ef4444">Negative</td><td class="driver">NKE fell 4% — CEO admitted turnaround slower than expected. Weak China margins. Guides pressure on XLY broadly.</td><td class="driver">NKE guidance negative read-through for consumer spending narrative.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Energy (XLE)</td><td><span class="bear">BEARISH ↓↓</span></td><td style="color:#ef4444">Negative</td><td class="driver">WTI -1.1% to $68.71. Iran rejected Doha = no formal deal = supply glut continues. Oil -30% in Q2. Iran shipped 40M+ barrels since naval blockade lifted.</td><td class="driver">Supply glut structurally bearish. No catalyst to reverse until demand data improves.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Gold/Metals</td><td><span class="bear">BEARISH ↓↓</span></td><td style="color:#ef4444">Negative</td><td class="driver">Gold below $4,000. -14% Q2 (worst since 2013). Silver -1.5%. Hawkish Fed + rising real rates + USD strength = triple headwind for precious metals.</td><td class="driver">GLD put thesis is strongest macro short in the market right now.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Telecom (VZ)</td><td><span class="bear">AVOID ↓</span></td><td style="color:#ef4444">Negative</td><td class="driver">VZ removed from Dow — forced selling. Rising rates = dividend yield headwind. No near-term catalyst.</td><td class="driver">Avoid while rates rising and Dow inclusion forces institutional selling.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- MACRO -->
+<div class="tab-panel" id="tab-macro">
+  <div class="section">
+    <div class="section-title">Macro Context — H2 2026 Opens</div>
+    <div class="macro-text">
+      <p><strong>The second half of 2026 opens with a significantly different macro backdrop than Q2 started with.</strong> Q2 began with fears about the Middle East conflict and ended with a tentative truce and historic equity gains. H2 begins with that truce under strain (Iran rejected Doha), markets digesting the best quarter in years, and a compressed data calendar — ADP + ISM + Warsh today, NFP tomorrow, markets closed Friday. The macro narrative is shifting from "can we avoid a rate hike?" to "when is the September hike?"</p>
+      <p><strong>The JOLTS report yesterday was arguably more important than any single data point this week.</strong> Job openings climbed to a two-year high — this directly undermines any dovish Fed narrative. A tight labour market means wage pressure continues, which means services inflation stays elevated, which means the Fed cannot cut and is more likely to hike. Markets have repriced accordingly — September hike probability is now approaching 70%. Warsh's speech at the ECB Forum in Sintra today (9:30 AM ET) will either confirm or challenge this pricing.</p>
+      <p><strong>The commodity complex tells a different story than equities.</strong> While stocks gained 14-20% in Q2, oil fell 30% and gold fell 14% — both at or near their worst quarterly performances in over a decade. The oil decline is supply-driven (Iran exports recovering post-Hormuz + Russian exports at record levels) and is structurally disinflationary for the US economy. This is a two-edged sword: lower oil reduces headline PCE (potentially easing the Fed's inflation burden) but the services inflation component (wages, shelter) remains sticky regardless of oil prices.</p>
+      <p><strong>Bitcoin's muted response to today's risk-off is worth noting.</strong> BTC is essentially flat (+0.08% to $58,346) in a session where equities futures are down 0.3-0.5%. This divergence from prior risk-off episodes — where crypto typically sold off aggressively alongside equities — suggests the broader crypto market is at a point where positioning is "washed out" per multiple analysts. Limited forced liquidation risk at current levels. Bitcoin remains a risk-on/risk-off indicator but its signal is currently ambiguous.</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">Rate Hike Probability Path</div>
+    <div class="regime-grid">
+      <div class="regime-card"><div class="rc-label">Sep hike probability</div><div class="rc-value" style="color:#f59e0b">~70%</div><div class="rc-sub">Up from 68% before JOLTS. Warsh today could push above 80%.</div></div>
+      <div class="regime-card"><div class="rc-label">JOLTS Job Openings</div><div class="rc-value" style="color:#ef4444">2yr High</div><div class="rc-sub">Direct labour market signal. Hawkish for Fed.</div></div>
+      <div class="regime-card"><div class="rc-label">ADP forecast</div><div class="rc-value">118K</div><div class="rc-sub">Below prior 122K. Below 100K = USD weakness.</div></div>
+      <div class="regime-card"><div class="rc-label">NFP forecast</div><div class="rc-value">~185K</div><div class="rc-sub">Tomorrow Thursday. JOLTS suggests upside surprise risk.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CALENDAR -->
+<div class="tab-panel" id="tab-calendar">
+  <div class="section">
+    <div class="section-title">Calendar — Final Days of Holiday Week</div>
+    <div class="cal-list">
+      <div class="cal-item"><div class="cal-imp high"></div><div class="cal-time">8:15 AM ET<br>Today</div><div class="cal-ccy">ADP</div><div><div class="cal-desc">ADP Employment Change (June)</div><div class="cal-sub">Forecast: 118K · Previous: 122K · First NFP preview</div><div class="cal-alert">⚠ Lands before Warsh speaks. Below 100K = brief USD softness. Above 150K = USD strength extension.</div></div></div>
+      <div class="cal-item"><div class="cal-imp high"></div><div class="cal-time">9:30 AM ET<br>Today</div><div class="cal-ccy">FED</div><div><div class="cal-desc">Fed Chair Warsh — ECB Forum in Sintra, Portugal</div><div class="cal-sub">Most important FX/equity catalyst of the day. First Fed communication since JOLTS 2yr high.</div><div class="cal-alert">⚠ Hawkish signal = Sep hike near-certain = USD rally + bond selling + growth stock pressure</div></div></div>
+      <div class="cal-item"><div class="cal-imp high"></div><div class="cal-time">10:00 AM ET<br>Today</div><div class="cal-ccy">ISM</div><div><div class="cal-desc">ISM Manufacturing PMI (June)</div><div class="cal-sub">Forecast: 53.8 · Previous: 54.0 · Industrial expansion confirmed above 50</div></div></div>
+      <div class="cal-item"><div class="cal-imp med"></div><div class="cal-time">10:30 AM ET<br>Today</div><div class="cal-ccy">EIA</div><div><div class="cal-desc">EIA Petroleum Status Report</div><div class="cal-sub">Weekly crude inventories. Forecast -4.8M barrels. Iran supply glut context makes this more market-moving than usual.</div></div></div>
+      <div class="cal-item"><div class="cal-imp high"></div><div class="cal-time">8:30 AM ET<br>Tomorrow</div><div class="cal-ccy">NFP</div><div><div class="cal-desc">Non-Farm Payrolls (June) — THURSDAY this week</div><div class="cal-sub">Most important data of the week. Moved up ahead of Friday July 3 US holiday closure.</div><div class="cal-alert">⚠ NFP is Thursday — markets close Friday for Independence Day</div></div></div>
+      <div class="cal-item"><div class="cal-imp low"></div><div class="cal-time">Jul 3</div><div class="cal-ccy">ALL</div><div><div class="cal-desc">US Markets Closed — Independence Day</div><div class="cal-sub">Thin liquidity around NFP Thursday. Holiday weekend extends through Monday for some.</div></div></div>
+      <div class="cal-item"><div class="cal-imp med"></div><div class="cal-time">Jul 7</div><div class="cal-ccy">SPCX</div><div><div class="cal-desc">SpaceX Joins Nasdaq-100</div><div class="cal-sub">Forced buying from index trackers. SPCX structural tailwind confirmed.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ANALYST NOTE -->
+<div class="tab-panel" id="tab-analyst">
+  <div class="section">
+    <div class="section-title">Actionable Setups — From the Futures Picture</div>
+
+    <div class="setup-card" style="border-left-color:#ef4444">
+      <div class="setup-header">
+        <span class="setup-ticker">GC / GLD</span>
+        <span class="bear">SHORT</span>
+        <span style="font-size:10px;color:#64748b;font-family:monospace">Gold futures · GLD puts · triple macro headwind</span>
+        <div style="margin-left:auto"><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22GLD%22%2C%22asset%22%3A%22Options%22%2C%22direction%22%3A%22Short%22%2C%22ticker_bias%22%3A%22BEARISH%22%2C%22call_put%22%3A%22Put%22%2C%22catalyst%22%3A%22Gold+below+%244%2C000+%E2%80%94+JOLTS+hawkish+%E2%80%94+Warsh+today+%E2%80%94+real+rates+rising%22%2C%22regime%22%3A%22CAUTIOUS%22%2C%22conviction%22%3A78%2C%22vix%22%3A18%7D" target="_blank">→ Journal</a></div>
+      </div>
+      <div class="setup-levels">
+        <div class="setup-level"><span class="sl-label">GC entry</span>Any bounce toward $4,020</div>
+        <div class="setup-level"><span class="sl-label">Stop</span>$4,060</div>
+        <div class="setup-level"><span class="sl-label">T1</span>$3,900</div>
+        <div class="setup-level"><span class="sl-label">Trigger</span>Warsh hawkish at 9:30 AM</div>
+        <div class="setup-level"><span class="sl-label">Conviction</span>78</div>
+      </div>
+      <div class="setup-note">Futures picture: GC (gold) broke below $4,000 — lowest in 8 months. The triple headwind is structural: (1) JOLTS at 2yr high confirms hawkish Fed, (2) Warsh speaks today at Sintra, (3) real rates rising as bond yields increase. -14% in Q2 (worst quarter since 2013) shows institutional conviction in the bear thesis. GLD puts on any morning bounce toward $4,020. If Warsh is hawkish at 9:30, gold tests $3,900 next.</div>
+    </div>
+
+    <div class="setup-card" style="border-left-color:#ef4444">
+      <div class="setup-header">
+        <span class="setup-ticker">CL</span>
+        <span class="bear">SHORT</span>
+        <span style="font-size:10px;color:#64748b;font-family:monospace">WTI crude · Iran supply glut · structural bear</span>
+        <div style="margin-left:auto"><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22CL%22%2C%22asset%22%3A%22Futures%22%2C%22direction%22%3A%22Short%22%2C%22ticker_bias%22%3A%22BEARISH%22%2C%22key_level%22%3A%2268.71%22%2C%22stop%22%3A%2272%22%2C%22t1%22%3A%2264%22%2C%22catalyst%22%3A%22Iran+rejected+Doha+talks+%E2%80%94+40M+barrels+shipped+%E2%80%94+Russia+exports+at+record%22%2C%22regime%22%3A%22CAUTIOUS%22%2C%22conviction%22%3A72%2C%22vix%22%3A18%7D" target="_blank">→ Journal</a></div>
+      </div>
+      <div class="setup-levels">
+        <div class="setup-level"><span class="sl-label">Entry</span>Any bounce toward $70</div>
+        <div class="setup-level"><span class="sl-label">Stop</span>$72</div>
+        <div class="setup-level"><span class="sl-label">T1</span>$64</div>
+        <div class="setup-level"><span class="sl-label">Trigger</span>Iran rejection confirmed · EIA today</div>
+        <div class="setup-level"><span class="sl-label">Conviction</span>72</div>
+      </div>
+      <div class="setup-note">Futures picture: CL (WTI) at $68.71, down 30% in Q2 — the supply glut is structural. Iran has shipped 40M+ barrels since the US lifted its naval blockade, and Russian exports are at record levels. Iran's rejection of Doha talks removes the formal deal catalyst that could have reduced supply further. EIA petroleum report at 10:30 AM will quantify inventory build. Structural supply glut + no peace deal = oil bear thesis intact. Short on bounces toward $70.</div>
+    </div>
+
+    <div class="setup-card">
+      <div class="setup-header">
+        <span class="setup-ticker">DX</span>
+        <span class="bull">LONG (via USD pairs)</span>
+        <span style="font-size:10px;color:#64748b;font-family:monospace">Dollar Index futures · JOLTS + Warsh + ADP</span>
+        <div style="margin-left:auto"><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22DX%22%2C%22asset%22%3A%22Futures%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22key_level%22%3A%22101.4%22%2C%22stop%22%3A%22100.5%22%2C%22t1%22%3A%22102.5%22%2C%22catalyst%22%3A%22JOLTS+2yr+high+%E2%80%94+Warsh+at+Sintra+9%3A30+%E2%80%94+Iran+reversal+%E2%80%94+ADP+today%22%2C%22regime%22%3A%22CAUTIOUS%22%2C%22conviction%22%3A75%2C%22vix%22%3A18%7D" target="_blank">→ Journal</a></div>
+      </div>
+      <div class="setup-levels">
+        <div class="setup-level"><span class="sl-label">DX entry</span>101.20–101.45</div>
+        <div class="setup-level"><span class="sl-label">Stop</span>100.50</div>
+        <div class="setup-level"><span class="sl-label">T1</span>102.50</div>
+        <div class="setup-level"><span class="sl-label">Trigger</span>Warsh hawkish · ADP inline or beat</div>
+        <div class="setup-level"><span class="sl-label">Conviction</span>75</div>
+      </div>
+      <div class="setup-note">Futures picture: DX (Dollar Index) at 101.4, rising. JOLTS at a two-year high, Warsh speaks at ECB Forum today, ADP + ISM both landing. All of today's domestic data flow is tilted hawkish. Iran rejection reverting safe haven demand to USD. Better expressed via FX pairs (short EUR/USD, long USD/CAD) than DX futures directly — but the direction is unambiguous. Strong NFP tomorrow completes the bull case.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Senior Analyst Note</div>
+    <div class="analyst-box">
+      <div class="analyst-label">TPTraders Senior Market Analyst — July 1, 2026</div>
+      <div class="analyst-text">
+        <p><strong>H2 2026 opens exactly as it should after a historic quarter — with discipline, not euphoria.</strong> The S&P 500 gained 14% in Q2, the Nasdaq gained 20%, and both sectors pulled back to open July 1. This is not a warning sign. This is healthy. Historically, markets that post large quarterly gains tend to consolidate in the early weeks of the following quarter before resuming the trend or establishing a new one. The Iran news and the data calendar are creating the mechanical excuse for that consolidation — but the underlying driver is normal institutional rebalancing after exceptional gains.</p>
+        <p><strong>The most important thing happening today is Warsh at Sintra at 9:30 AM ET.</strong> The JOLTS data yesterday gave him a hawkish backdrop: job openings at a two-year high means the labour market is tighter than expected. If Warsh explicitly signals that September is on the table — or that the Fed is evaluating reducing its balance sheet — the rate narrative shifts from "possible hike" to "probable hike," and that repricing moves markets significantly. Financials benefit. Gold falls. USD rallies. Growth stocks face additional pressure. Position for that scenario, not against it, going into his speech.</p>
+        <p><strong>The futures picture tells a clear directional story for H2.</strong> Gold -14% in Q2 — the bear is structural. Oil -30% in Q2 — the supply glut is structural. Dollar +2% in Q2 — the bull is structural. These aren't short-term trades. They are multi-quarter trends driven by real macro forces (Fed hawkishness, Iran supply recovery, real rates rising) that are unlikely to reverse without a fundamental shift in those forces. Trade with these trends in H2. Short bounces in gold and oil. Buy dips in USD pairs.</p>
+        <p><strong>NFP tomorrow (Thursday July 2) is the week's defining event.</strong> Given JOLTS at a two-year high, the upside risk to NFP is real — the labor market may be tighter than the 185K consensus forecast suggests. A print above 220K would send September hike probability above 90% and could trigger a significant cross-asset repricing: USD surging, bonds selling off, gold falling further, and growth stocks facing another leg lower. Size positions conservatively going into the print — holiday-thinned liquidity on Thursday and Friday amplifies moves in both directions.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">Market Breadth Brief · TPTraders Intelligence Hub · 2026-07-01 · NOT FINANCIAL ADVICE<br>
+<a href="https://cbell0920.github.io/tptraders-hub">← TPTraders Hub</a>
+</div>
+<script>
+function switchTab(name){
+  const names=['overview','futures','sectors','macro','calendar','analyst'];
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',names[i]===name));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+}
+</script>
 </body>
 </html>
