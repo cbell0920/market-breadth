@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Market Breadth Brief — 2026-06-29 — TPTraders</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0e1a;color:#e2e8f0;font-family:'Inter',system-ui,sans-serif;padding:20px;line-height:1.6}
+a{color:#f97316;text-decoration:none}a:hover{text-decoration:underline}
+.hdr{background:#0d1221;border:1px solid #1e2d4a;border-radius:12px;padding:16px 22px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.title{font-size:20px;font-weight:700;color:#fff}.sub{font-size:12px;color:#64748b;margin-top:3px}
+.hub-link{color:#f97316;font-size:12px;font-weight:600;border:1px solid #f9731633;padding:5px 12px;border-radius:6px}
+.hub-link:hover{background:#f9731614;text-decoration:none}
+.warn{background:#1a0f0a;border:1px solid #f9731633;border-radius:8px;padding:8px 16px;font-size:11px;color:#fb923c;margin-bottom:18px}
+.section{margin-bottom:26px}
+.section-title{font-size:10px;font-weight:700;color:#f97316;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #1e2d4a}
+.regime-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.regime-card{background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:12px;text-align:center}
+.rc-label{font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+.rc-value{font-size:15px;font-weight:700;color:#fff}
+.rc-sub{font-size:10px;color:#64748b;margin-top:4px;line-height:1.4}
+.macro-text{font-size:13px;color:#94a3b8;line-height:1.85}
+.macro-text p{margin-bottom:12px}.macro-text strong{color:#e2e8f0}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;padding:7px 10px;color:#475569;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid #1e2d4a}
+td{padding:7px 10px;border-bottom:1px solid #0d1629;vertical-align:middle}
+tr:last-child td{border-bottom:none}tr:hover td{background:#ffffff04}
+.bull{color:#22c55e;font-weight:700}.bear{color:#ef4444;font-weight:700}.neu{color:#f59e0b;font-weight:700}
+.driver{color:#64748b;font-size:11px}
+.cal-list{display:flex;flex-direction:column;gap:8px}
+.cal-item{background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:12px}
+.cal-imp{width:4px;border-radius:2px;flex-shrink:0;align-self:stretch;min-height:30px}
+.cal-imp.high{background:#ef4444}.cal-imp.med{background:#f59e0b}.cal-imp.low{background:#22c55e}
+.cal-time{font-size:10px;color:#64748b;min-width:55px;font-family:'Courier New',monospace}
+.cal-ccy{font-size:10px;font-weight:700;color:#f97316;min-width:50px}
+.cal-desc{font-size:12px;color:#e2e8f0;font-weight:500}
+.cal-sub{font-size:10px;color:#64748b;margin-top:2px}
+.cal-alert{font-size:11px;color:#f59e0b;margin-top:2px;font-style:italic}
+.analyst-box{background:#0d1629;border:1px solid #f9731622;border-left:3px solid #f97316;border-radius:0 8px 8px 0;padding:16px 18px}
+.analyst-label{font-size:9px;color:#f97316;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;font-weight:700}
+.analyst-text{font-size:13px;color:#cbd5e1;line-height:1.85}
+.analyst-text p{margin-bottom:12px}.analyst-text p:last-child{margin-bottom:0}.analyst-text strong{color:#fff}
+.setup-card{background:#111827;border:1px solid #2d3a1e;border-left:3px solid #f97316;border-radius:0 8px 8px 0;padding:12px 14px;margin-bottom:10px}
+.setup-header{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.setup-ticker{font-family:'Courier New',monospace;font-size:15px;font-weight:700;color:#fff}
+.setup-levels{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.setup-level{background:#0a0e1a;border:1px solid #1e2d4a;border-radius:4px;padding:4px 8px;font-family:'Courier New',monospace;font-size:10px}
+.setup-level .sl-label{color:#64748b;margin-right:4px}
+.setup-note{font-size:12px;color:#94a3b8;line-height:1.6}
+.journal-btn{display:inline-flex;align-items:center;gap:4px;background:#f9731614;border:1px solid #f9731644;color:#f97316;font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px;cursor:pointer;text-decoration:none;white-space:nowrap;font-family:'Courier New',monospace}
+.journal-btn:hover{background:#f9731624;text-decoration:none}
+.breadth-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.breadth-card{background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:12px}
+.bc-label{font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
+.bc-value{font-size:16px;font-weight:700}
+.bc-sub{font-size:10px;color:#64748b;margin-top:3px;line-height:1.4}
+.footer{text-align:center;color:#1e3a5f;font-size:10px;margin-top:30px;padding-top:16px;border-top:1px solid #1e2d4a}
+.tabs{display:flex;gap:0;border-bottom:1px solid #1e2d4a;margin-bottom:16px;overflow-x:auto}
+.tab{padding:8px 16px;font-size:11px;font-weight:600;color:#475569;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s;user-select:none}
+.tab:hover{color:#94a3b8}.tab.active{color:#f97316;border-bottom-color:#f97316}
+.tab-panel{display:none}.tab-panel.active{display:block}
+@media(max-width:600px){body{padding:12px}.hdr{flex-direction:column}.regime-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div>
+    <div class="title">BREADTH/BRIEF 2026-06-29 — TPTraders</div>
+    <div class="sub">Generated Mon, 29 Jun 2026 | Pre-market | Q2 final week · Tech rotation · NFP Friday · Iran peace risk-on</div>
+  </div>
+  <a class="hub-link" href="https://cbell0920.github.io/tptraders-hub">← Hub</a>
+</div>
+<div class="warn">⚠ NOT FINANCIAL ADVICE — For research and educational purposes only.</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('snapshot')">Index Snapshot</div>
+  <div class="tab" onclick="switchTab('breadth')">Breadth Indicators</div>
+  <div class="tab" onclick="switchTab('sectors')">Sectors</div>
+  <div class="tab" onclick="switchTab('rates')">Rates & Yields</div>
+  <div class="tab" onclick="switchTab('calendar')">Calendar</div>
+  <div class="tab" onclick="switchTab('analyst')">Analyst Note</div>
+</div>
+
+<!-- SNAPSHOT -->
+<div class="tab-panel active" id="tab-snapshot">
+  <div class="section">
+    <div class="section-title">Market Regime — Q2 Final Week</div>
+    <div class="regime-grid">
+      <div class="regime-card"><div class="rc-label">S&P 500 (Fri close)</div><div class="rc-value" style="color:#ef4444">$728.99</div><div class="rc-sub">-0.72% Fri · tech dragging · breadth positive</div></div>
+      <div class="regime-card"><div class="rc-label">Nasdaq (Sun Jun 28)</div><div class="rc-value" style="color:#ef4444">$706.27</div><div class="rc-sub">-5.7% from $748.65 ATH · AI cost concerns</div></div>
+      <div class="regime-card"><div class="rc-label">Dow Jones</div><div class="rc-value" style="color:#22c55e">~$51,920</div><div class="rc-sub">+0.14% Thu · industrials leading</div></div>
+      <div class="regime-card"><div class="rc-label">VIX</div><div class="rc-value" style="color:#22c55e">18.41</div><div class="rc-sub">-2.54% Fri · below 20 · Iran peace helping</div></div>
+      <div class="regime-card"><div class="rc-label">Russell 2000</div><div class="rc-value" style="color:#22c55e">~$3,008</div><div class="rc-sub">+0.71% Thu · small caps recovering</div></div>
+      <div class="regime-card"><div class="rc-label">S&P Equal Weight</div><div class="rc-value" style="color:#22c55e">+0.7% Thu</div><div class="rc-sub">While SPX was flat — breadth genuinely improving</div></div>
+      <div class="regime-card"><div class="rc-label">Gold</div><div class="rc-value" style="color:#ef4444">$4,070</div><div class="rc-sub">-0.64% · real rates rising · USD headwind</div></div>
+      <div class="regime-card"><div class="rc-label">WTI Crude</div><div class="rc-value" style="color:#22c55e">$69.92</div><div class="rc-sub">+1.0% · Iran peace · Hormuz stable</div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">Week in Context</div>
+    <div class="macro-text">
+      <p>The final week of Q2 2026 opens with a genuine rotation story. <strong>Technology sold off sharply last week</strong> — semiconductor index -7.9%, QQQ -5.7% from its ATH — despite Micron posting the most important earnings beat of the year. The divergence between strong AI earnings and falling tech stock prices reflects concerns about spiraling AI costs, the reported OpenAI IPO delay, and Apple/Microsoft announcing consumer price increases. These are sentiment headwinds, not fundamental deterioration.</p>
+      <p>But the underlying breadth picture was constructive throughout. <strong>Advancing shares outnumbered declining shares every day</strong> even as major indexes fell. The S&P Equal Weight index rose 0.7% Thursday when the S&P 500 was flat. Healthcare led with XLV +3.03%. Industrials and financials participated. Money rotated — it did not leave. That is a healthy bull market in the middle of a sector rotation, not the beginning of a bear market.</p>
+      <p><strong>This week Iran peace talk progress is adding risk-on sentiment.</strong> US officials confirmed talks remain on track. Comcast announced a major spinoff pre-market — NBCUniversal and Sky becoming separate publicly traded companies. SpaceX was announced for Nasdaq 100 inclusion Friday. These are all structural positives for market confidence. NFP Friday is the week's defining event.</p>
+    </div>
+  </div>
+</div>
+
+<!-- BREADTH -->
+<div class="tab-panel" id="tab-breadth">
+  <div class="section">
+    <div class="section-title">Breadth Indicators — Week of June 29</div>
+    <div class="breadth-grid">
+      <div class="breadth-card"><div class="bc-label">Advance/Decline</div><div class="bc-value" style="color:#22c55e">Positive</div><div class="bc-sub">Advancing outnumbered declining all week despite index losses. Key bullish signal.</div></div>
+      <div class="breadth-card"><div class="bc-label">SPX Equal Weight Thu</div><div class="bc-value" style="color:#22c55e">+0.7%</div><div class="bc-sub">While SPX was flat — underlying breadth strong.</div></div>
+      <div class="breadth-card"><div class="bc-label">Semi Index Week</div><div class="bc-value" style="color:#ef4444">-7.9%</div><div class="bc-sub">PHLX chip index fell sharply. Sector-specific not market-wide.</div></div>
+      <div class="breadth-card"><div class="bc-label">Healthcare Week</div><div class="bc-value" style="color:#22c55e">+3%</div><div class="bc-sub">XLV +3.03%, IHE +3.32%. Leading the rotation.</div></div>
+      <div class="breadth-card"><div class="bc-label">Russell 2000 Thu</div><div class="bc-value" style="color:#22c55e">+0.71%</div><div class="bc-sub">Small caps recovering after early week lag.</div></div>
+      <div class="breadth-card"><div class="bc-label">VIX 52W Range</div><div class="bc-value">13.38–35.30</div><div class="bc-sub">Current 18.41 — near lower end. Complacency watch.</div></div>
+      <div class="breadth-card"><div class="bc-label">QQQ ATH Distance</div><div class="bc-value" style="color:#f59e0b">-5.7%</div><div class="bc-sub">From $748.65 ATH. $700 is key support.</div></div>
+      <div class="breadth-card"><div class="bc-label">SpaceX → Nasdaq 100</div><div class="bc-value" style="color:#22c55e">Announced</div><div class="bc-sub">Structural positive for QQQ. Forced buying from trackers.</div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">Breadth Assessment</div>
+    <div class="macro-text">
+      <p><strong>The breadth picture is one of the most important signals this week.</strong> When major indexes fall but advance/decline is positive and equal-weight outperforms, it tells you the market is redistributing — not liquidating. Institutional money is moving from expensive, crowded positions (mega-cap tech) into value, defensives, and cyclicals (healthcare, industrials, financials). This is classic late-stage bull market sector rotation.</p>
+      <p>The risk scenario is if NFP on Friday is so strong that it forces aggressive September hike pricing (above 80–90%), which could compress multiples broadly and damage even the defensive rotation. At 68% currently priced, there is room for the rotation to continue. Watch the 10-year yield — if it breaks above 4.5%, the rate headwind becomes too large for any sector to ignore.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTORS -->
+<div class="tab-panel" id="tab-sectors">
+  <div class="section">
+    <div class="section-title">Sector Rotation — June 29</div>
+    <table>
+      <thead><tr><th>Sector</th><th>Posture</th><th>Last Week</th><th>Drivers</th><th>This Week Outlook</th></tr></thead>
+      <tbody>
+        <tr><td style="font-weight:600;color:#fff">Healthcare (XLV)</td><td><span class="bull">LEADING ↑↑</span></td><td style="color:#22c55e;font-family:monospace">+3%</td><td class="driver">Obesity drug milestone · Lilly game-changer · defensive rotation · IHE +3.32%</td><td class="driver">Continues to lead. NFP-proof — defensive revenues hold regardless of rate path.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Industrials (XLI)</td><td><span class="bull">ROTATING IN ↑</span></td><td style="color:#22c55e;font-family:monospace">Positive</td><td class="driver">Hormuz open · supply chain normalisation · Dow outperformance</td><td class="driver">ADP and ISM Manufacturing data Wednesday confirms or challenges.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Financials (XLF)</td><td><span class="bull">ROTATING IN ↑</span></td><td style="color:#22c55e;font-family:monospace">Positive</td><td class="driver">Rising rates = NIM positive · Fed stress tests passed · Sep hike pricing</td><td class="driver">Strong NFP = more upside. Hot inflation = rate hike = financials benefit.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Semiconductors</td><td><span class="bear">UNDER PRESSURE ↓↓</span></td><td style="color:#ef4444;font-family:monospace">-7.9%</td><td class="driver">AI cost concerns · OpenAI IPO delay reported · despite Micron blowout</td><td class="driver">Watch for stabilisation. $700 QQQ support key. SpaceX Nasdaq 100 inclusion positive.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Mega-Cap Tech</td><td><span class="bear">BEARISH ↓</span></td><td style="color:#ef4444;font-family:monospace">Negative</td><td class="driver">AAPL/MSFT price increases · AI cost concerns · rates headwind for multiples</td><td class="driver">No catalyst to reverse. Rotation out continues. Wait for stabilisation.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Media/Entertainment</td><td><span class="bull">CATALYST ↑</span></td><td style="color:#f59e0b;font-family:monospace">Mixed</td><td class="driver">Comcast spinoff — NBCUniversal + Sky → two public companies. CMCSA +25% pre-market.</td><td class="driver">CMCSA is today's story. Gap-and-go if open holds.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Energy (XLE)</td><td><span class="neu">MIXED →</span></td><td style="color:#f59e0b;font-family:monospace">Mixed</td><td class="driver">WTI +1.0% today on Iran peace · but structural headwind at $69.92</td><td class="driver">Iran peace = lower oil longer-term. Energy under pressure.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Gold/Metals (GLD)</td><td><span class="bear">BEARISH ↓↓</span></td><td style="color:#ef4444;font-family:monospace">-0.64%</td><td class="driver">Real rates rising · DXY 101.2 · PCE 4.1% hawkish · Iran disinflationary</td><td class="driver">Short thesis intact. Puts on bounces toward $370–372.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Consumer Discretionary</td><td><span class="neu">WATCH →</span></td><td style="color:#f59e0b;font-family:monospace">Flat</td><td class="driver">Nike earnings Wednesday = consumer health check</td><td class="driver">NKE guidance Wednesday defines the week for XLY.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Utilities/Telecom</td><td><span class="bear">AVOID ↓</span></td><td style="color:#ef4444;font-family:monospace">Negative</td><td class="driver">Rising rates = direct headwind for dividend yield plays</td><td class="driver">Stay away while 10-year above 4.3%.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- RATES -->
+<div class="tab-panel" id="tab-rates">
+  <div class="section">
+    <div class="section-title">Rates, Yields & Dollar</div>
+    <div class="regime-grid">
+      <div class="regime-card"><div class="rc-label">10-Year Yield</div><div class="rc-value" style="color:#f59e0b">4.372%</div><div class="rc-sub">Slightly easing. Still elevated. Growth headwind.</div></div>
+      <div class="regime-card"><div class="rc-label">30-Year Yield</div><div class="rc-value" style="color:#ef4444">4.863%</div><div class="rc-sub">Long end elevated. Real rates rising.</div></div>
+      <div class="regime-card"><div class="rc-label">DXY</div><div class="rc-value" style="color:#22c55e">101.2</div><div class="rc-sub">USD bull intact. PCE 4.1% supports.</div></div>
+      <div class="regime-card"><div class="rc-label">Fed Funds</div><div class="rc-value">3.50–3.75%</div><div class="rc-sub">Sep hike 68% priced. NFP Friday key.</div></div>
+      <div class="regime-card"><div class="rc-label">WTI Crude</div><div class="rc-value" style="color:#22c55e">$69.92</div><div class="rc-sub">+1.0% Iran peace. Disinflationary trend intact.</div></div>
+      <div class="regime-card"><div class="rc-label">Gold</div><div class="rc-value" style="color:#ef4444">$4,070</div><div class="rc-sub">-0.64% · below $4,100 · real rates pressure.</div></div>
+      <div class="regime-card"><div class="rc-label">Bitcoin</div><div class="rc-value" style="color:#ef4444">$59,541</div><div class="rc-sub">-0.59% · risk-off pressure persisting.</div></div>
+      <div class="regime-card"><div class="rc-label">Sep Hike Probability</div><div class="rc-value" style="color:#f59e0b">68%</div><div class="rc-sub">NFP Friday will move this materially.</div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">NFP Preview — The Week's Pivot Point</div>
+    <div class="macro-text">
+      <p><strong>Non-Farm Payrolls on Friday July 2 is the single most important data event of the week.</strong> The September rate hike is currently 68% priced. A strong NFP (above 180K, unemployment holding below 4%) pushes that to 80–90% and extends USD strength, pressures tech multiples, and benefits financials. A weak NFP (below 120K, unemployment rising) drops the probability to 40–50% and gives tech stocks a meaningful relief rally.</p>
+      <p>The week's setup: today is light (no data), Tuesday is light, Wednesday brings ADP (preview) and ISM Manufacturing, Thursday is a US holiday (Independence Day) creating thin liquidity conditions, Friday brings NFP. Build positions today and Tuesday in the direction you want to hold into Friday. The holiday Thursday is the danger — thin volume amplifies any early NFP reaction Friday morning.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CALENDAR -->
+<div class="tab-panel" id="tab-calendar">
+  <div class="section">
+    <div class="section-title">Calendar — This Week</div>
+    <div class="cal-list">
+      <div class="cal-item"><div class="cal-imp low"></div><div class="cal-time">Today<br>Jun 29</div><div class="cal-ccy">ALL</div><div><div class="cal-desc">No major data — light Monday</div><div class="cal-sub">Iran peace talk updates = primary intraday catalyst. Comcast spinoff drives CMCSA pre-market.</div></div></div>
+      <div class="cal-item"><div class="cal-imp high"></div><div class="cal-time">Jun 30</div><div class="cal-ccy">MACRO</div><div><div class="cal-desc">Consumer Confidence (June) + JOLTS (May)</div><div class="cal-sub">Consumer health and labour market check ahead of NFP. JOLTS job openings = early read on slack.</div></div></div>
+      <div class="cal-item"><div class="cal-imp high"></div><div class="cal-time">Jun 30</div><div class="cal-ccy">NKE/STZ</div><div><div class="cal-desc">Nike Q4 FY2026 + Constellation Brands Earnings</div><div class="cal-sub">Nike = consumer spending health. Guidance will move XLY and consumer discretionary broadly.</div><div class="cal-alert">⚠ NKE guidance is a key read on US consumer resilience</div></div></div>
+      <div class="cal-item"><div class="cal-imp high"></div><div class="cal-time">Jul 1</div><div class="cal-ccy">MACRO</div><div><div class="cal-desc">ADP Employment + ISM Manufacturing PMI (June)</div><div class="cal-sub">NFP preview. ISM manufacturing confirms industrial health. Both set expectations for Friday.</div></div></div>
+      <div class="cal-item"><div class="cal-imp low"></div><div class="cal-time">Jul 3</div><div class="cal-ccy">ALL</div><div><div class="cal-desc">US Markets Closed — Independence Day</div><div class="cal-sub">Thin volume going into and coming out of holiday. Be careful with position sizes around Jul 2 NFP.</div></div></div>
+      <div class="cal-item"><div class="cal-imp high"></div><div class="cal-time">Jul 2</div><div class="cal-ccy">NFP</div><div><div class="cal-desc">Non-Farm Payrolls + Unemployment Rate (June)</div><div class="cal-sub">Most important event of the week. Determines September hike probability. Moves USD, rates, tech, financials.</div><div class="cal-alert">⚠ Holiday before and after — thin liquidity amplifies the move</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ANALYST NOTE -->
+<div class="tab-panel" id="tab-analyst">
+  <div class="section">
+    <div class="section-title">Actionable Setups — From the Breadth Picture</div>
+
+    <div class="setup-card">
+      <div class="setup-header">
+        <span class="setup-ticker">XLV</span>
+        <span class="bull">LONG</span>
+        <span style="font-size:10px;color:#64748b;font-family:monospace">Healthcare ETF · rotation leader · NFP-proof</span>
+        <div style="margin-left:auto"><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22XLV%22%2C%22asset%22%3A%22Options%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22key_level%22%3A%22160.34%22%2C%22stop%22%3A%22155%22%2C%22t1%22%3A%22170%22%2C%22call_put%22%3A%22Call%22%2C%22catalyst%22%3A%22Healthcare+leading+rotation+%E2%80%94+Lilly+milestone+%E2%80%94+defensive+in+rising+rate+environment%22%2C%22regime%22%3A%22RISK-ON%22%2C%22conviction%22%3A72%2C%22vix%22%3A18.41%7D" target="_blank">→ Journal</a></div>
+      </div>
+      <div class="setup-levels">
+        <div class="setup-level"><span class="sl-label">Entry</span>$160–162 dip</div>
+        <div class="setup-level"><span class="sl-label">Stop</span>$155</div>
+        <div class="setup-level"><span class="sl-label">T1</span>$170</div>
+        <div class="setup-level"><span class="sl-label">Trigger</span>Breadth rotation confirmed · VIX below 20</div>
+        <div class="setup-level"><span class="sl-label">Conviction</span>72</div>
+      </div>
+      <div class="setup-note">Breadth picture: healthcare led last week's rotation with XLV +3.03% on a day the Nasdaq was down. Advancing outnumbered declining consistently. Lilly obesity drug milestone approaching. Defensive revenues hold regardless of NFP outcome Friday. Best sector to own going into a data-heavy week — it wins whether jobs are strong or weak.</div>
+    </div>
+
+    <div class="setup-card" style="border-left-color:#ef4444">
+      <div class="setup-header">
+        <span class="setup-ticker">GLD</span>
+        <span class="bear">SHORT (puts)</span>
+        <span style="font-size:10px;color:#64748b;font-family:monospace">Gold ETF · macro short · real rates + USD headwind</span>
+        <div style="margin-left:auto"><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22GLD%22%2C%22asset%22%3A%22Options%22%2C%22direction%22%3A%22Short%22%2C%22ticker_bias%22%3A%22BEARISH%22%2C%22key_level%22%3A%22367%22%2C%22stop%22%3A%22376%22%2C%22t1%22%3A%22352%22%2C%22call_put%22%3A%22Put%22%2C%22catalyst%22%3A%22PCE+4.1%25+%2B+DXY+101.2+%2B+Iran+peace+disinflationary+%2B+real+rates+rising%22%2C%22regime%22%3A%22RISK-ON%22%2C%22conviction%22%3A70%2C%22vix%22%3A18.41%7D" target="_blank">→ Journal</a></td>
+      </div>
+      <div class="setup-levels">
+        <div class="setup-level"><span class="sl-label">Entry</span>Bounce $370–372</div>
+        <div class="setup-level"><span class="sl-label">Stop</span>$376</div>
+        <div class="setup-level"><span class="sl-label">T1</span>$352</div>
+        <div class="setup-level"><span class="sl-label">Trigger</span>Any USD-driven rally in gold = put entry</div>
+        <div class="setup-level"><span class="sl-label">Conviction</span>70</div>
+      </div>
+      <div class="setup-note">Breadth picture: gold is the clearest macro short in the market. PCE 4.1% = hawkish Fed = rising real rates = gold headwind. DXY 101.2 = dollar strength adds pressure. Iran peace talks add oil-disinflationary impulse that undermines gold's inflation hedge appeal. Strong NFP Friday would be the catalyst for the next leg down. Buy puts on any pre-NFP bounce toward $370–372.</div>
+    </div>
+
+    <div class="setup-card" style="border-left-color:#3b82f6">
+      <div class="setup-header">
+        <span class="setup-ticker">XLF</span>
+        <span class="bull">LONG</span>
+        <span style="font-size:10px;color:#64748b;font-family:monospace">Financials ETF · rate hike beneficiary · conditional on NFP</span>
+        <div style="margin-left:auto"><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22XLF%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22catalyst%22%3A%22Rising+rates+%3D+NIM+positive+%E2%80%94+Sep+hike+68%25+priced+%E2%80%94+stress+tests+passed%22%2C%22regime%22%3A%22RISK-ON%22%2C%22conviction%22%3A65%2C%22vix%22%3A18.41%7D" target="_blank">→ Journal</a></div>
+      </div>
+      <div class="setup-levels">
+        <div class="setup-level"><span class="sl-label">Entry</span>Any dip this week</div>
+        <div class="setup-level"><span class="sl-label">Stop</span>-3% from entry</div>
+        <div class="setup-level"><span class="sl-label">T1</span>Prior high</div>
+        <div class="setup-level"><span class="sl-label">Trigger</span>Strong NFP Friday July 2 confirms</div>
+        <div class="setup-level"><span class="sl-label">Conviction</span>65</div>
+      </div>
+      <div class="setup-note">Breadth picture: financials rotating in as rates stay elevated. Rising rates = wider net interest margins = higher bank earnings. Fed stress tests passed — capital return capacity confirmed. Sep hike 68% priced. A strong NFP Friday pushes hike probability higher and directly benefits XLF. Enter this week, let NFP do the work. If NFP disappoints, exit quickly — the thesis depends on the rate path.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Senior Analyst Note</div>
+    <div class="analyst-box">
+      <div class="analyst-label">TPTraders Senior Market Analyst — June 29, 2026</div>
+      <div class="analyst-text">
+        <p><strong>Q2 is ending with a rotation story that matters.</strong> The final week of the quarter opens with tech under pressure, healthcare leading, and the Comcast spinoff announcement reshaping the media landscape. The breadth picture is the most important signal — advancing outnumbered declining shares consistently last week even as the Nasdaq fell 5.7% from its ATH. Institutions are repositioning within equities, not leaving them. That is a fundamentally different market than the one that exists when declining shares dominate.</p>
+        <p><strong>This week is about NFP on Friday.</strong> Everything between today and Thursday July 4 (US holiday) is positioning for that data point. The ADP report Wednesday gives a preview. The ISM Manufacturing data Wednesday gives an industrial health read. Consumer confidence and JOLTS Tuesday give a consumer health read. If all of these come in strong, by Thursday the September hike is near-certain and you want financials, healthcare, and short USD pairs going into Friday. If any of them disappoint materially, trim risk before Friday NFP.</p>
+        <p><strong>The rotation out of semis deserves careful watch.</strong> The semiconductor selloff last week (-7.9% for the PHLX chip index) happened DESPITE Micron posting the most important earnings beat of the year. That tells you the selling was sentiment-driven — AI cost concerns and crowded positioning, not fundamental deterioration. Tom Lee of Fundstrat called it "a classic opportunity to buy the dip in chip stocks." SpaceX's Nasdaq 100 inclusion creates structural forced buying for QQQ. The question is timing — semis could fall further before institutional buyers step in. Don't chase the dip prematurely. Wait for a confirmed base candle at $700 QQQ support before re-entering tech.</p>
+        <p><strong>Iran peace talk progress is the wild card.</strong> If talks accelerate toward a formal agreement this week, oil could fall below $65/bbl — amplifying the disinflationary impulse from the Hormuz reopening. That would be bullish for equities broadly (lower inflation = less hawkish Fed) but bearish for gold and energy. Watch oil closely — it is the transmission mechanism from geopolitics to markets this week.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">Market Breadth Brief · TPTraders Intelligence Hub · 2026-06-29 · NOT FINANCIAL ADVICE<br>
+<a href="https://cbell0920.github.io/tptraders-hub" style="color:#1e3a5f">← TPTraders Hub</a>
+</div>
+<script>
+function switchTab(name){
+  const names=['snapshot','breadth','sectors','rates','calendar','analyst'];
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',names[i]===name));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+}
+</script>
+</body>
+</html>

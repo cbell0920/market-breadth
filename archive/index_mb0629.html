@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Market Breadth Brief — 2026-06-26 — TPTraders</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0e1a;color:#e2e8f0;font-family:'Inter',system-ui,sans-serif;padding:20px;line-height:1.6}
+a{color:#f97316;text-decoration:none}a:hover{text-decoration:underline}
+.hdr{background:#0d1221;border:1px solid #1e2d4a;border-radius:12px;padding:16px 22px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.title{font-size:20px;font-weight:700;color:#fff}.sub{font-size:12px;color:#64748b;margin-top:3px}
+.hub-link{color:#f97316;font-size:12px;font-weight:600;border:1px solid #f9731633;padding:5px 12px;border-radius:6px}
+.hub-link:hover{background:#f9731614;text-decoration:none}
+.warn{background:#1a0f0a;border:1px solid #f9731633;border-radius:8px;padding:8px 16px;font-size:11px;color:#fb923c;margin-bottom:18px}
+.section{margin-bottom:26px}
+.section-title{font-size:10px;font-weight:700;color:#f97316;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #1e2d4a}
+.regime-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.regime-card{background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:12px;text-align:center}
+.rc-label{font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+.rc-value{font-size:15px;font-weight:700;color:#fff}
+.rc-sub{font-size:10px;color:#64748b;margin-top:4px;line-height:1.4}
+.macro-text{font-size:13px;color:#94a3b8;line-height:1.85}
+.macro-text p{margin-bottom:12px}.macro-text strong{color:#e2e8f0}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;padding:7px 10px;color:#475569;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid #1e2d4a}
+td{padding:7px 10px;border-bottom:1px solid #0d1629;vertical-align:middle}
+tr:last-child td{border-bottom:none}tr:hover td{background:#ffffff04}
+.bull{color:#22c55e;font-weight:700}.bear{color:#ef4444;font-weight:700}.neu{color:#f59e0b;font-weight:700}
+.level{font-family:'Courier New',monospace;color:#f59e0b;font-size:11px}
+.driver{color:#64748b;font-size:11px}
+.cal-list{display:flex;flex-direction:column;gap:8px}
+.cal-item{background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:12px}
+.cal-imp{width:4px;border-radius:2px;flex-shrink:0;align-self:stretch;min-height:30px}
+.cal-imp.high{background:#ef4444}.cal-imp.med{background:#f59e0b}.cal-imp.low{background:#22c55e}
+.cal-time{font-size:10px;color:#64748b;min-width:55px;font-family:'Courier New',monospace}
+.cal-ccy{font-size:10px;font-weight:700;color:#f97316;min-width:50px}
+.cal-desc{font-size:12px;color:#e2e8f0;font-weight:500}
+.cal-sub{font-size:10px;color:#64748b;margin-top:2px}
+.cal-alert{font-size:11px;color:#f59e0b;margin-top:2px;font-style:italic}
+.analyst-box{background:#0d1629;border:1px solid #f9731622;border-left:3px solid #f97316;border-radius:0 8px 8px 0;padding:16px 18px}
+.analyst-label{font-size:9px;color:#f97316;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;font-weight:700}
+.analyst-text{font-size:13px;color:#cbd5e1;line-height:1.85}
+.analyst-text p{margin-bottom:12px}.analyst-text p:last-child{margin-bottom:0}.analyst-text strong{color:#fff}
+.setup-card{background:#111827;border:1px solid #2d3a1e;border-left:3px solid #f97316;border-radius:0 8px 8px 0;padding:12px 14px;margin-bottom:10px}
+.setup-header{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.setup-ticker{font-family:'Courier New',monospace;font-size:15px;font-weight:700;color:#fff}
+.setup-levels{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.setup-level{background:#0a0e1a;border:1px solid #1e2d4a;border-radius:4px;padding:4px 8px;font-family:'Courier New',monospace;font-size:10px}
+.setup-level .sl-label{color:#64748b;margin-right:4px}
+.setup-note{font-size:12px;color:#94a3b8;line-height:1.6}
+.journal-btn{display:inline-flex;align-items:center;gap:4px;background:#f9731614;border:1px solid #f9731644;color:#f97316;font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px;cursor:pointer;text-decoration:none;white-space:nowrap;font-family:'Courier New',monospace}
+.journal-btn:hover{background:#f9731624;text-decoration:none}
+.badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:9px;font-weight:700}
+.badge-pos{background:#0a2d0a;color:#22c55e;border:1px solid #22c55e33}
+.badge-neg{background:#2d0a0a;color:#ef4444;border:1px solid #ef444433}
+.badge-neu{background:#2d2000;color:#f59e0b;border:1px solid #f59e0b33}
+.breadth-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.breadth-card{background:#111827;border:1px solid #1e2d4a;border-radius:8px;padding:12px}
+.bc-label{font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
+.bc-value{font-size:16px;font-weight:700}
+.bc-sub{font-size:10px;color:#64748b;margin-top:3px;line-height:1.4}
+.footer{text-align:center;color:#1e3a5f;font-size:10px;margin-top:30px;padding-top:16px;border-top:1px solid #1e2d4a}
+.tabs{display:flex;gap:0;border-bottom:1px solid #1e2d4a;margin-bottom:16px;overflow-x:auto}
+.tab{padding:8px 16px;font-size:11px;font-weight:600;color:#475569;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s;user-select:none}
+.tab:hover{color:#94a3b8}.tab.active{color:#f97316;border-bottom-color:#f97316}
+.tab-panel{display:none}.tab-panel.active{display:block}
+@media(max-width:600px){body{padding:12px}.hdr{flex-direction:column;align-items:flex-start}.regime-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div>
+    <div class="title">BREADTH/BRIEF 2026-06-26 — TPTraders</div>
+    <div class="sub">Generated Fri, 26 Jun 2026 | Pre-market | PCE 4.1% absorbed · Markets bounced Thursday · Light Friday ahead</div>
+  </div>
+  <a class="hub-link" href="https://cbell0920.github.io/tptraders-hub">← Hub</a>
+</div>
+<div class="warn">⚠ NOT FINANCIAL ADVICE — For research and educational purposes only.</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('snapshot')">Index Snapshot</div>
+  <div class="tab" onclick="switchTab('breadth')">Breadth Indicators</div>
+  <div class="tab" onclick="switchTab('sectors')">Sectors</div>
+  <div class="tab" onclick="switchTab('rates')">Rates & Yields</div>
+  <div class="tab" onclick="switchTab('calendar')">Calendar</div>
+  <div class="tab" onclick="switchTab('analyst')">Analyst Note</div>
+</div>
+
+<!-- SNAPSHOT -->
+<div class="tab-panel active" id="tab-snapshot">
+  <div class="section">
+    <div class="section-title">Market Regime — Post-PCE, Pre-Weekend</div>
+    <div class="regime-grid">
+      <div class="regime-card"><div class="rc-label">S&P 500 (Thu close)</div><div class="rc-value" style="color:#22c55e">+0.26%</div><div class="rc-sub">7,377 · PCE absorbed · chipmakers rebounded</div></div>
+      <div class="regime-card"><div class="rc-label">Nasdaq (Thu close)</div><div class="rc-value" style="color:#22c55e">+0.49%</div><div class="rc-sub">TSMC raised forecast · semis led</div></div>
+      <div class="regime-card"><div class="rc-label">Dow Jones (Thu close)</div><div class="rc-value" style="color:#22c55e">+0.24%</div><div class="rc-sub">Broad participation · industrials + financials</div></div>
+      <div class="regime-card"><div class="rc-label">VIX (Thu close)</div><div class="rc-value" style="color:#22c55e">18.63</div><div class="rc-sub">Below 20 · Friday drift lower expected</div></div>
+      <div class="regime-card"><div class="rc-label">PCE Result</div><div class="rc-value" style="color:#f59e0b">4.1% YoY</div><div class="rc-sub">In line annual · slightly soft monthly · possible peak</div></div>
+      <div class="regime-card"><div class="rc-label">TSMC Forecast</div><div class="rc-value" style="color:#22c55e">Raised ↑</div><div class="rc-sub">2026 revenue raised · AI GPU demand confirmed</div></div>
+      <div class="regime-card"><div class="rc-label">DXY</div><div class="rc-value" style="color:#22c55e">101.3</div><div class="rc-sub">USD bull intact · sweeping resistance</div></div>
+      <div class="regime-card"><div class="rc-label">Gold</div><div class="rc-value" style="color:#ef4444">$4,001</div><div class="rc-sub">Below $4,000 intraday · lowest Nov 2025</div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">Week in Review — What Happened</div>
+    <div class="macro-text">
+      <p>This was a week dominated by two massive catalysts arriving back to back. <strong>Micron's Q3 earnings (Wednesday after close)</strong> delivered a blowout beat — AI memory chip demand surging, shares +17–18%. <strong>PCE inflation Thursday morning (4.1% YoY)</strong> came in at the high end but monthly slightly softer than feared (+0.4% vs +0.5%). Markets absorbed both and closed the week higher across all major indices.</p>
+      <p>The week's final confirmation came Thursday: <strong>TSMC raised its 2026 revenue forecast</strong>, citing strong AI chip demand. Three data points — Micron earnings, PCE, TSMC guidance — all pointed in the same direction: the AI capex cycle is real and accelerating, inflation is elevated but possibly peaking. Markets have found an equilibrium in that tension.</p>
+      <p><strong>JPMorgan raised its year-end S&P 500 target to 7,800</strong> (from 7,600) — the highest major bank target currently. The bullish case: AI earnings growth + inflation potentially peaking + Hormuz open (oil disinflationary) + consumer spending resilient. The bear case: 4.1% PCE = Federal Reserve hike = multiple compression. Both narratives are live. The market is pricing the bull case for now.</p>
+    </div>
+  </div>
+</div>
+
+<!-- BREADTH -->
+<div class="tab-panel" id="tab-breadth">
+  <div class="section">
+    <div class="section-title">Breadth Indicators — Week Ending June 26</div>
+    <div class="breadth-grid">
+      <div class="breadth-card"><div class="bc-label">S&P 500 ATH Distance</div><div class="bc-value" style="color:#f59e0b">-4.8%</div><div class="bc-sub">From ~7,750 ATH. JPM target 7,800. Recovery ongoing.</div></div>
+      <div class="breadth-card"><div class="bc-label">Week Performance</div><div class="bc-value" style="color:#22c55e">Mixed → Up</div><div class="bc-sub">Tech selloff Mon–Tue reversed. Semis led Wed–Thu.</div></div>
+      <div class="breadth-card"><div class="bc-label">Participation</div><div class="bc-value" style="color:#22c55e">Improving</div><div class="bc-sub">Thu: All three major indices closed higher. Broader than Mon-Tue semi selloff.</div></div>
+      <div class="breadth-card"><div class="bc-label">VIX</div><div class="bc-value" style="color:#22c55e">18.63</div><div class="bc-sub">Well below 20. Options premiums normalising. Complacency watch.</div></div>
+      <div class="breadth-card"><div class="bc-label">Semi vs Broad</div><div class="bc-value" style="color:#22c55e">Semis Leading</div><div class="bc-sub">Philadelphia Semi Index up ~7% past week. Narrow leadership but powerful.</div></div>
+      <div class="breadth-card"><div class="bc-label">Russell 2000</div><div class="bc-value" style="color:#f59e0b">Recovering</div><div class="bc-sub">Small caps lagged early week but recovered Thursday. Breadth improving.</div></div>
+      <div class="breadth-card"><div class="bc-label">Dow vs Nasdaq</div><div class="bc-value" style="color:#22c55e">Both Up Thu</div><div class="bc-sub">Dow +0.24% · Nasdaq +0.49%. Broad participation Thursday = healthy.</div></div>
+      <div class="breadth-card"><div class="bc-label">S&P Tech Sector YTD</div><div class="bc-value" style="color:#22c55e">+27%</div><div class="bc-sub">Only sector outpacing S&P 500's 9.8% 3-month gain.</div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">Breadth Assessment</div>
+    <div class="macro-text">
+      <p><strong>Breadth improved significantly Thursday.</strong> The week started with a narrow semi selloff (Mon–Tue) that looked like a potential rotation out of tech. By Thursday, all three major indices were higher, small caps recovered, and industrials/financials participated. This is the breadth confirmation the bulls needed after the Micron-driven initial bounce.</p>
+      <p><strong>The leadership is still narrow</strong> — semiconductors are driving the Nasdaq, while the Dow's participation comes from industrials and financials benefiting from rising rates. Software and large-cap growth (AAPL, GOOGL, MSFT) are not participating meaningfully. For the rally to extend to new ATHs, either software rejoins (would require rate narrative softening) or the breadth stays intact through sector rotation. Friday's UMich data is the last test before a relatively quiet week ahead.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTORS -->
+<div class="tab-panel" id="tab-sectors">
+  <div class="section">
+    <div class="section-title">Sector Rotation — Post-PCE Update</div>
+    <table>
+      <thead><tr><th>Sector</th><th>Posture</th><th>Week Change</th><th>Drivers</th><th>Next Week Outlook</th></tr></thead>
+      <tbody>
+        <tr><td style="font-weight:600;color:#fff">Semiconductors</td><td><span class="bull">LEADING ↑↑</span></td><td style="color:#22c55e;font-family:monospace">+7% week</td><td class="driver">Micron blowout · TSMC raised forecast · QCOM data center · AI demand confirmed</td><td class="driver">Momentum intact. Any pullback = buy opportunity into July AI capex cycle.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Financials</td><td><span class="bull">ROTATING IN ↑</span></td><td style="color:#22c55e;font-family:monospace">Positive</td><td class="driver">Rising rates = NIM positive · Fed stress tests passed · PCE confirms hawkish path</td><td class="driver">Constructive. Rate hike pricing increases NIM benefit.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Industrials</td><td><span class="bull">ROTATING IN ↑</span></td><td style="color:#22c55e;font-family:monospace">Positive</td><td class="driver">Hormuz open · supply chain normalising · Dow leading · defense pullback on Germany news</td><td class="driver">Light calendar next week. Watch ISM Manufacturing Jul 1.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Technology (broad)</td><td><span class="neu">MIXED →</span></td><td style="color:#f59e0b;font-family:monospace">Mixed</td><td class="driver">Semis strong · software lagging · AAPL/MSFT/GOOGL consolidating · rates headwind</td><td class="driver">Semis stay strong. Software needs rate narrative to soften.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Energy</td><td><span class="bear">LAGGING ↓</span></td><td style="color:#ef4444;font-family:monospace">Negative</td><td class="driver">WTI $69 · Hormuz open · pre-war price levels · Brent $73.40</td><td class="driver">Oil at $69 keeps sector under pressure. Disinflationary tailwind for consumers.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Gold/Metals</td><td><span class="bear">BEARISH ↓↓</span></td><td style="color:#ef4444;font-family:monospace">-3%+ week</td><td class="driver">Gold below $4,000 · real rates rising · DXY 101.3 · PCE hawkish confirmation</td><td class="driver">Short setup intact. GLD puts on bounces toward $370–372.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Consumer Discretionary</td><td><span class="neu">CAUTIOUS →</span></td><td style="color:#f59e0b;font-family:monospace">Flat</td><td class="driver">Oil falling = gas price relief · but savings rate 3% (low) · spending strong but fragile</td><td class="driver">Nike earnings Jun 30 = consumer health check.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Healthcare</td><td><span class="neu">NEUTRAL →</span></td><td style="color:#f59e0b;font-family:monospace">Flat</td><td class="driver">Defensive bid on risk-off days · no major catalysts</td><td class="driver">Light calendar. Defensive rotation if VIX spikes.</td></tr>
+        <tr><td style="font-weight:600;color:#fff">Utilities/Telecom</td><td><span class="bear">AVOID ↓</span></td><td style="color:#ef4444;font-family:monospace">Negative</td><td class="driver">Rising rates = direct headwind for dividend yield plays</td><td class="driver">Stay away while 10-year above 4.3%.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- RATES -->
+<div class="tab-panel" id="tab-rates">
+  <div class="section">
+    <div class="section-title">Rates, Yields & Dollar — Week Ending Jun 26</div>
+    <div class="regime-grid">
+      <div class="regime-card"><div class="rc-label">10-Year Yield</div><div class="rc-value" style="color:#ef4444">4.408%</div><div class="rc-sub">Rising week. PCE 4.1% confirms hawkish path. Growth headwind.</div></div>
+      <div class="regime-card"><div class="rc-label">30-Year Yield</div><div class="rc-value" style="color:#ef4444">4.863%</div><div class="rc-sub">Long end elevated. Real rates rising.</div></div>
+      <div class="regime-card"><div class="rc-label">DXY</div><div class="rc-value" style="color:#22c55e">101.3</div><div class="rc-sub">Sweeping past chart resistance. Highest in 1+ year.</div></div>
+      <div class="regime-card"><div class="rc-label">Fed Funds</div><div class="rc-value">3.50–3.75%</div><div class="rc-sub">Hold. Sep hike ~68% priced. Warsh hawkish.</div></div>
+      <div class="regime-card"><div class="rc-label">WTI Crude</div><div class="rc-value" style="color:#ef4444">$69.45</div><div class="rc-sub">Pre-war levels. Disinflationary impulse building.</div></div>
+      <div class="regime-card"><div class="rc-label">Gold</div><div class="rc-value" style="color:#ef4444">~$4,001</div><div class="rc-sub">Below $4,000 intraday. Lowest since Nov 2025.</div></div>
+      <div class="regime-card"><div class="rc-label">PCE YoY</div><div class="rc-value" style="color:#f59e0b">4.1%</div><div class="rc-sub">Highest since Apr 2023. Possible peak as oil falls.</div></div>
+      <div class="regime-card"><div class="rc-label">Core PCE YoY</div><div class="rc-value" style="color:#f59e0b">3.4%</div><div class="rc-sub">Highest since Oct 2023. +0.3% m/m in line.</div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">The Inflation Peak Thesis</div>
+    <div class="macro-text">
+      <p>The most important macro question for equities over the next 4–6 weeks is whether <strong>May PCE at 4.1% represents the peak</strong> of the current inflation surge. Several analysts made this case Thursday:</p>
+      <p>The Iran war drove oil from ~$69 to ~$114/bbl, adding roughly 1.2 percentage points to PCE inflation between January and May 2026. The Strait of Hormuz has reopened and oil has fallen all the way back to $69/bbl. That 45-point decline in oil will feed through into June PCE (reported late July) and July PCE (reported August) as lower gasoline prices. <strong>If the disinflation shows up in June data, the Fed hike narrative softens materially and equities get a significant tailwind into Q3.</strong></p>
+      <p>The risk to this thesis: services inflation (currently +2% m/m, +3.4% YoY on core) is driven by wages and shelter, not energy. Even if oil-driven inflation disappears, services inflation could keep core PCE sticky above 3%. That's the scenario where the Fed hikes in September and equities face a more difficult second half. The next 6 weeks of data will resolve this question.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CALENDAR -->
+<div class="tab-panel" id="tab-calendar">
+  <div class="section">
+    <div class="section-title">Calendar — Today & Week Ahead</div>
+    <div class="cal-list">
+      <div class="cal-item"><div class="cal-imp high"></div><div class="cal-time">RESULT<br>Thu</div><div class="cal-ccy">PCE</div><div><div class="cal-desc">PCE Inflation May 2026 — CONFIRMED</div><div class="cal-sub">4.1% YoY (in line) · +0.4% m/m (slightly below +0.5% forecast) · Core 3.4% YoY · +0.3% m/m</div><div class="cal-alert">✓ Market absorbed well. Possible peak as oil disinflationary impulse incoming.</div></div></div>
+      <div class="cal-item"><div class="cal-imp med"></div><div class="cal-time">10:00 ET<br>Today</div><div class="cal-ccy">MACRO</div><div><div class="cal-desc">University of Michigan Consumer Sentiment — Final (June)</div><div class="cal-sub">5-year inflation expectations component is the key watch — above 3.5% could spike VIX briefly</div><div class="cal-alert">⚠ Low overall impact but inflation expectations component matters to Fed</div></div></div>
+      <div class="cal-item"><div class="cal-imp low"></div><div class="cal-time">Jun 29</div><div class="cal-ccy">MACRO</div><div><div class="cal-desc">No Major Data</div><div class="cal-sub">Light start to the week. Markets absorbing the prior week's catalysts.</div></div></div>
+      <div class="cal-item"><div class="cal-imp med"></div><div class="cal-time">Jun 30</div><div class="cal-ccy">NKE</div><div><div class="cal-desc">Nike Q4 FY2026 Earnings</div><div class="cal-sub">Consumer spending health · DTC vs wholesale · China revenue watch</div></div></div>
+      <div class="cal-item"><div class="cal-imp high"></div><div class="cal-time">Jul 1</div><div class="cal-ccy">MACRO</div><div><div class="cal-desc">ADP Employment Change + ISM Manufacturing PMI (June)</div><div class="cal-sub">First major July data. Confirms or challenges Fed's hawkish path into Sep meeting.</div></div></div>
+      <div class="cal-item"><div class="cal-imp high"></div><div class="cal-time">Late Jul</div><div class="cal-ccy">MACRO</div><div><div class="cal-desc">June PCE Inflation (est. Jul 24–25)</div><div class="cal-sub">The most important data point of July. Will show if oil disinflation is feeding through to prices.</div><div class="cal-alert">⚠ This is the swing factor for H2 equities. Watch closely.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ANALYST NOTE -->
+<div class="tab-panel" id="tab-analyst">
+  <div class="section">
+    <div class="section-title">Actionable Setups — From the Breadth Picture</div>
+
+    <div class="setup-card">
+      <div class="setup-header">
+        <span class="setup-ticker">XSD</span>
+        <span class="bull">LONG</span>
+        <span style="font-size:10px;color:#64748b;font-family:monospace">Semiconductor ETF · AI demand structural</span>
+        <div style="margin-left:auto"><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22XSD%22%2C%22asset%22%3A%22Stocks%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22key_level%22%3A%22current%22%2C%22stop%22%3A%22-4%25+from+entry%22%2C%22t1%22%3A%22new+ATH%22%2C%22catalyst%22%3A%22Micron+%2B+TSMC+double+confirmation+of+AI+demand%22%2C%22regime%22%3A%22RISK-ON+LEAN%22%2C%22conviction%22%3A75%2C%22vix%22%3A18.63%7D" target="_blank">→ Journal</a></div>
+      </div>
+      <div class="setup-levels">
+        <div class="setup-level"><span class="sl-label">Entry</span>Any Friday dip</div>
+        <div class="setup-level"><span class="sl-label">Stop</span>-4% from entry</div>
+        <div class="setup-level"><span class="sl-label">T1</span>Prior ATH</div>
+        <div class="setup-level"><span class="sl-label">Trigger</span>If VIX stays below 20</div>
+        <div class="setup-level"><span class="sl-label">Conviction</span>75</div>
+      </div>
+      <div class="setup-note">Breadth picture: semis are leading the market with two back-to-back institutional confirmations (Micron earnings + TSMC raised forecast). The sector is in a momentum phase. XSD gives diversified semi exposure without single-stock concentration risk. If VIX drifts lower Friday (expected on light volume), any dip in XSD is a buying opportunity into the following week.</div>
+    </div>
+
+    <div class="setup-card" style="border-left-color:#ef4444">
+      <div class="setup-header">
+        <span class="setup-ticker">GLD</span>
+        <span class="bear">SHORT (via puts)</span>
+        <span style="font-size:10px;color:#64748b;font-family:monospace">Gold ETF · macro short · USD + rates headwind</span>
+        <div style="margin-left:auto"><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22GLD%22%2C%22asset%22%3A%22Options%22%2C%22direction%22%3A%22Short%22%2C%22ticker_bias%22%3A%22BEARISH%22%2C%22key_level%22%3A%22367%22%2C%22stop%22%3A%22376%22%2C%22t1%22%3A%22352%22%2C%22call_put%22%3A%22Put%22%2C%22catalyst%22%3A%22PCE+4.1%25+%2B+DXY+101.3+%2B+gold+below+%244%2C000%22%2C%22regime%22%3A%22RISK-ON+LEAN%22%2C%22conviction%22%3A70%2C%22vix%22%3A18.63%7D" target="_blank">→ Journal</a></td>
+      </div>
+      <div class="setup-levels">
+        <div class="setup-level"><span class="sl-label">Entry</span>GLD bounce $370–372</div>
+        <div class="setup-level"><span class="sl-label">Stop</span>$376</div>
+        <div class="setup-level"><span class="sl-label">T1</span>$352</div>
+        <div class="setup-level"><span class="sl-label">Trigger</span>Friday USD trimming = GLD bounce = put entry</div>
+        <div class="setup-level"><span class="sl-label">Conviction</span>70</div>
+      </div>
+      <div class="setup-note">Breadth picture: gold is the clearest macro short in the market. PCE 4.1% = hawkish Fed = rising real rates = gold headwind. DXY 101.3 = dollar strength = additional gold pressure. Below $4,000 technically. Friday positioning flows may cause a minor USD pullback and temporary GLD bounce — that bounce is the put entry, not a reversal of the trend.</div>
+    </div>
+
+    <div class="setup-card" style="border-left-color:#3b82f6">
+      <div class="setup-header">
+        <span class="setup-ticker">QQQ</span>
+        <span class="bull">LONG</span>
+        <span style="font-size:10px;color:#64748b;font-family:monospace">Nasdaq ETF · conditional on UMich</span>
+        <div style="margin-left:auto"><a class="journal-btn" href="https://tptraders.vercel.app?brief_context=%7B%22ticker%22%3A%22QQQ%22%2C%22asset%22%3A%22Options%22%2C%22direction%22%3A%22Long%22%2C%22ticker_bias%22%3A%22BULLISH%22%2C%22key_level%22%3A%22721%22%2C%22stop%22%3A%22700%22%2C%22t1%22%3A%22748%22%2C%22call_put%22%3A%22Call%22%2C%22catalyst%22%3A%22AI+earnings+intact+%E2%80%94+UMich+must+not+spike+inflation+expectations%22%2C%22regime%22%3A%22RISK-ON+LEAN%22%2C%22conviction%22%3A65%2C%22vix%22%3A18.63%7D" target="_blank">→ Journal</a></div>
+      </div>
+      <div class="setup-levels">
+        <div class="setup-level"><span class="sl-label">Entry</span>After UMich (10 AM)</div>
+        <div class="setup-level"><span class="sl-label">Stop</span>$700</div>
+        <div class="setup-level"><span class="sl-label">T1</span>$748 ATH</div>
+        <div class="setup-level"><span class="sl-label">Trigger</span>UMich 5Y inflation expectations below 3.5%</div>
+        <div class="setup-level"><span class="sl-label">Conviction</span>65</div>
+      </div>
+      <div class="setup-note">Breadth picture: Nasdaq bounced Thursday on Micron + TSMC. Two AI demand confirmations in one week = strong fundamental backdrop. But Friday's UMich consumer sentiment (10 AM) carries a key risk: if 5-year inflation expectations jump above 3.5%, it could briefly spike VIX and pressure Nasdaq. Wait for the UMich print before entering QQQ calls. If expectations are in line or below — the Nasdaq dip into 10 AM is the entry.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Senior Analyst Note</div>
+    <div class="analyst-box">
+      <div class="analyst-label">TPTraders Senior Market Analyst — June 26, 2026</div>
+      <div class="analyst-text">
+        <p><strong>This was a week that tested conviction and rewarded patience.</strong> Monday and Tuesday brought a sharp tech selloff — semiconductors fell hard as crowded AI positioning unwound. Many traders bailed on semi longs. Then Wednesday evening, Micron posted the most important earnings report of 2026 so far. Thursday morning, PCE came in at 4.1% — elevated but not catastrophic. Thursday afternoon, TSMC raised its revenue forecast. The week that started with fear ended with AI trade confirmation. The traders who held through the noise were rewarded.</p>
+        <p><strong>The breadth improvement is the most encouraging signal.</strong> Thursday saw all three major indices higher — Dow, S&P, and Nasdaq. Small caps recovered. Industrials and financials participated alongside semis. That's not a narrow, fragile rally — that's genuine risk appetite across sectors. The advance/decline picture improved materially from the week's lows.</p>
+        <p><strong>Going into next week: the setup is constructive but not crowded.</strong> Light calendar (no major data until Jul 1). VIX below 20 and drifting lower. AI earnings cycle validated twice in one week. The risk is that Friday's UMich inflation expectations data surprises to the upside — if 5-year inflation expectations spike, it could briefly pressure equities. Use that as a buying opportunity rather than a signal to exit.</p>
+        <p><strong>The medium-term key question:</strong> will June PCE (reported late July) show the disinflationary impulse from oil falling $45 from its peak? If yes, the bull case broadens dramatically — lower inflation expectations = more room for multiples to expand = new ATHs. If no — if services inflation keeps core PCE sticky — the market faces a more difficult second half. Everything between now and late July is positioning for that data point. Trade the AI names hard. Keep GLD puts. Watch the inflation peak thesis closely.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">Market Breadth Brief · TPTraders Intelligence Hub · 2026-06-26 · NOT FINANCIAL ADVICE<br>
+<a href="https://cbell0920.github.io/tptraders-hub" style="color:#1e3a5f">← TPTraders Hub</a>
+</div>
+<script>
+function switchTab(name){
+  const names=['snapshot','breadth','sectors','rates','calendar','analyst'];
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',names[i]===name));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+}
+</script>
+</body>
+</html>
